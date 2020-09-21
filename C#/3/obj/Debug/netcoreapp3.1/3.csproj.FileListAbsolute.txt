@@ -1,0 +1,11 @@
+/home/kirill/Practice/C#/3/obj/Debug/netcoreapp3.1/3.csprojAssemblyReference.cache
+/home/kirill/Practice/C#/3/obj/Debug/netcoreapp3.1/3.AssemblyInfoInputs.cache
+/home/kirill/Practice/C#/3/obj/Debug/netcoreapp3.1/3.AssemblyInfo.cs
+/home/kirill/Practice/C#/3/bin/Debug/netcoreapp3.1/3
+/home/kirill/Practice/C#/3/bin/Debug/netcoreapp3.1/3.deps.json
+/home/kirill/Practice/C#/3/bin/Debug/netcoreapp3.1/3.runtimeconfig.json
+/home/kirill/Practice/C#/3/bin/Debug/netcoreapp3.1/3.runtimeconfig.dev.json
+/home/kirill/Practice/C#/3/bin/Debug/netcoreapp3.1/3.dll
+/home/kirill/Practice/C#/3/bin/Debug/netcoreapp3.1/3.pdb
+/home/kirill/Practice/C#/3/obj/Debug/netcoreapp3.1/3.dll
+/home/kirill/Practice/C#/3/obj/Debug/netcoreapp3.1/3.pdb
