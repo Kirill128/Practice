@@ -7,11 +7,11 @@ public class Main
         Scanner in =new Scanner(System.in);
         System.out.println("Input num of users:");
         int UserQuantity=in.nextInt();
-        System.out.println();
+        System.out.println("Input speed:");
         int Speed=in.nextInt();
-        System.out.println("Input num of users:");
-        int UserQuantity=in.nextInt();
-        System.out.println();
+        System.out.println("Input money:");
+        int Money=in.nextInt();
+        
     }
     
     public static int[][] getFromDatabase()
