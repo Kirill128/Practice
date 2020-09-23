@@ -11,16 +11,30 @@ public class Main
         int Speed=in.nextInt();
         System.out.println("Input moneu:");
         int Moneu=in.nextInt();
-	    LinkedList<String[]> res=getFromDatabase(getDatabase("/home/kirill/Practice/Java/CNJP/Database.txt"));
+        LinkedList<String[]> database=getDatabase("/home/kirill/Practice/Java/CNJP/Database.txt");
+        if (database!=null)
+	    {
+            LinkedList<String> res=getFromDatabase(database,UserQuantity,Speed,Moneu);
 
-    }
-    public static LinkedList<String[]> getFromDatabase(LinkedList<String[]> list,int quantity,int speed,int moneu)
-    {
-        Iterator<String[]> iter=list.iterator();
-        for(int quantScore,speedScore,moneuScore;iter.hasNext();)
+        }
+        else 
         {
-
-
+            System.out.println("Database error!");
+        }
+    }
+    public static LinkedList<String> getFromDatabase(LinkedList<String[]> list,int quantity,int speed,int moneu)
+    {
+        int a=list.size();
+        int b=list.getLast().length;
+        ListIterator<String[]> iter=list.listIterator();
+        String [][] database= new String [a][b];
+        for(int i=0;iter.hasNext();i++)
+        {
+            String [] str=iter.next();
+            for(int j=0;j<b;j++)
+            {
+                database[i][j]=str[j];
+            }
         }
     	return null;	
     }

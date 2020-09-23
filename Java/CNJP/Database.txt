@@ -1,18 +1,18 @@
 router          1           4              0         100                  90              
-router          2           4              0         1000                562                                          
-router          3           4              0         1000                   141                       
+router          2           4              0         1000                 562                                          
+router          3           4              0         1000                 141                       
 router          4		    4	           0         100		          120	    
 router 		    5	        4		       0         1000		          141 	     
-router 		    6		    10	           1         1000		        450	 
-router 		    7	        10 		       1         100 		            290	   	
-router 	     	8	        8		       0         10000		            7513	
-switch 	    	9	        14		       2         10000		            2360	
+router 		    6		    10	           1         1000		          450	 
+router 		    7	        10 		       1         100 		          290	   	
+router 	     	8	        8		       0         10000		          7513	
+switch 	    	9	        14		       2         10000		          2360	
 switch          10          16             0         100                  141                                                                        
 switch          11          16             0         100                  190                 
-switch          12          24             2         1000                540                                                       
+switch          12          24             2         1000                 540                                                       
 switch          13          8              0         1000                 280                                                               
 switch          14          8              0         1000                 100                                                                             
-switch          15          8              0         1000                  160                               
+switch          15          8              0         1000                 160                               
 switch          16          24             0         100                  350                                                                                                     
 switch          17          16             0         1000                 356                                                                                  
 
