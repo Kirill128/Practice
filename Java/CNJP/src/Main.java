@@ -50,10 +50,12 @@ public class Main
             if(dataBase[rout][3]>=speed && dataBase[rout][4]<moneu)
             {
                 routerCost=dataBase[rout][4];
-                resCost=routerCost;
+                
                 freePortsThisRout=dataBase[rout][1]-1;
+                System.out.println("routerCOst:"+routerCost + " res:"+resCost);
                 for(int swich=firstSwitch,freePortsThisSwich;swich<17;swich++)
-                {            
+                {    
+                    resCost=routerCost;        
                     if(dataBase[swich][3]>=speed )
                     {
                         freePortsThisSwich=dataBase[swich][1]-2;
@@ -62,22 +64,29 @@ public class Main
                             quanSwitch++;
 
                         switchCost=(quanSwitch*dataBase[swich][4]);
+                        System.out.println("routerCOst:"+routerCost+" Switchcost:"+switchCost+" res:"+resCost);
                         resCost+=switchCost;
-
+                        System.out.println("routerCOst:"+routerCost+" Switchcost:"+switchCost+" res:"+resCost);
                         if(resCost<moneu)
                         {
+                            System.out.println("routerCOst:"+routerCost+" Switchcost:"+switchCost+"Cablecost:"+" SSSSSSSSSSSSS");
                             for(int cable=firstCable;cable<19;cable++ )
                             {
                                 cableCost=dataBase[cable][4]*(quanSwitch+1);
                                 resCost+=cableCost;
+                                System.out.println("routerCOst:"+routerCost+" Switchcost:"+switchCost+"Cablecost:"+cableCost);
                                 if(dataBase[cable][3]>=speed && resCost<=moneu )
                                 {
+                                    
                                     System.out.println("Rout:"+dataBase[rout][0]+"\nSwitch:"+dataBase[swich][0]+" X"+quanSwitch+"\nCable:"+dataBase[cable][0]+"\nCost:"+resCost+"\n");
                                 }
+                                resCost-=cableCost;
                             }
                         }
 
-                    }    
+
+                    } 
+                    
                 }
                 
             }
