@@ -30,13 +30,14 @@ public class Main
         ListIterator<String[]> iter=list.listIterator();
         String [] nameBase= new String [a];
         int [][] dataBase=new int[a][b-1];
+        System.out.println(a+"  "+b);
         for(int i=0;iter.hasNext();i++)
         {
             String [] str=iter.next();
             nameBase[i]=str[0];
             for(int j=0;j<b-1;j++)
             {
-                dataBase[i][j]=Iteger.valueOf(str[j+1]);
+                dataBase[i][j]=Integer.valueOf(str[j+1]);
             }
         }
         int routerCost=0,switchCost=0,cableCost=0,freePortsThisRout=0,quanSwitch=0,resCost=0;
@@ -51,7 +52,7 @@ public class Main
                 routerCost=dataBase[rout][4];
                 resCost=routerCost;
                 freePortsThisRout=dataBase[rout][1]-1;
-                for(int swich=firstSwitch,freePortsThisSwich;swich<17;i++)
+                for(int swich=firstSwitch,freePortsThisSwich;swich<17;swich++)
                 {            
                     if(dataBase[swich][3]>=speed )
                     {
@@ -65,22 +66,21 @@ public class Main
 
                         if(resCost<moneu)
                         {
-                            for(int cable=firsCable;cable<19;cable++ )
+                            for(int cable=firstCable;cable<19;cable++ )
                             {
                                 cableCost=dataBase[cable][4]*(quanSwitch+1);
                                 resCost+=cableCost;
                                 if(dataBase[cable][3]>=speed && resCost<=moneu )
                                 {
-                                    System.out.println("Rout:"+dataBase[rout][0]+"\nSwitch:"+dataBase[swich][0]+" X"+quanSwitch+"\nCable:"+dataBase[cable][0]+"\nCost:"+resCost);
+                                    System.out.println("Rout:"+dataBase[rout][0]+"\nSwitch:"+dataBase[swich][0]+" X"+quanSwitch+"\nCable:"+dataBase[cable][0]+"\nCost:"+resCost+"\n");
                                 }
                             }
                         }
 
                     }    
                 }
-
+                
             }
-            
         }
     }
     public static  LinkedList<String[]> getDatabase(String path)
@@ -93,7 +93,12 @@ public class Main
 	   	        resList.addLast(str.split(" "));
 		        System.out.println(str);
 	        }
-	        return resList;
+            for(String [] s : resList)
+            {  for(String a : s)
+                    System.out.print(a+" ");
+                System.out.println();
+            }
+            return resList;
        }
        catch(IOException ex)
        {	
