@@ -11,7 +11,8 @@ public class Main
         int Speed=in.nextInt();
         System.out.println("Input moneu:");
         int Moneu=in.nextInt();
-        LinkedList<String[]> database=getDatabase("/home/kirill/Practice/Java/CNJP/Database.txt");
+        LinkedList<String[]> database=getDatabase("I:\\Practice\\Java\\CNJP\\Database.txt");
+        //"/home/kirill/Practice/Java/CNJP/Database.txt"
         if (database!=null)
 	    {
             getFromDatabase(database,UserQuantity,Speed,Moneu);
@@ -70,7 +71,7 @@ public class Main
                                 resCost+=cableCost;
                                 if(dataBase[cable][3]>=speed && resCost<=moneu )
                                 {
-
+                                    System.out.println("Rout:"+dataBase[rout][0]+"\nSwitch:"+dataBase[swich][0]+" X"+quanSwitch+"\nCable:"+dataBase[cable][0]+"\nCost:"+resCost);
                                 }
                             }
                         }
