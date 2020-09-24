@@ -8,21 +8,20 @@ public class Main
         System.out.println("Input num of users:");
         int UserQuantity=in.nextInt();
         System.out.println("Input speed:");
-        int Speed=in.nextInt();
+        String Speed=in.nextInt();
         System.out.println("Input moneu:");
         int Moneu=in.nextInt();
         LinkedList<String[]> database=getDatabase("/home/kirill/Practice/Java/CNJP/Database.txt");
         if (database!=null)
 	    {
-            LinkedList<String> res=getFromDatabase(database,UserQuantity,Speed,Moneu);
-
+            getFromDatabase(database,UserQuantity,Speed,Moneu);
         }
         else 
         {
             System.out.println("Database error!");
         }
     }
-    public static LinkedList<String> getFromDatabase(LinkedList<String[]> list,int quantity,int speed,int moneu)
+    public static void getFromDatabase(LinkedList<String[]> list,int quantity,String speed,int moneu)
     {
         int a=list.size();
         int b=list.getLast().length;
@@ -36,7 +35,23 @@ public class Main
                 database[i][j]=str[j];
             }
         }
-    	return null;	
+        int firstSwitch=8;
+        int firstCable=17;
+        for(int rout=0,m=0,q=0;rout<8;i++)
+        {   
+            m=database[i][5];
+            if(database[i][4]==speed )
+                for(int switch=firstSwitch;switch<17;i++)
+                {
+                    while()
+                    {    
+                        for(int cable=firsCable;cable<19;cable++ )
+                        {
+                            
+                        }
+                    }
+                }
+        }
     }
     public static  LinkedList<String[]> getDatabase(String path)
     {

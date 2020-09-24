@@ -16,3 +16,5 @@ id 	ref
 15  https://market.yandex.by/product--kommutator-cisco-sg110d-08/12631381/spec
 16  https://market.yandex.by/product--kommutator-cisco-sf110-24/13277875
 17  https://market.yandex.by/product--kommutator-cisco-sg110-16/12631376    
+18  https://www.socket.by/kompyutery/setevoe-oborudovanie/setevye-kabeli-i-prinadlezhnosti/patch-kord-utp-cat-5e-gembird-pp12-1m-bk-chernyy-1m/
+19  https://aliexpress.ru/item/4001228828689.html?spm=a2g0o.productlist.0.0.69d63a87ehasaC&s=p&ad_pvid=2020092310215110414605919403340000430571_5&algo_pvid=a6d8f7e0-3759-463d-bf6a-27ef04304ccc&algo_expid=a6d8f7e0-3759-463d-bf6a-27ef04304ccc-4&btsid=0b8b034516008817116685237e4c0a&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_
