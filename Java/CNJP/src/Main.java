@@ -52,7 +52,7 @@ public class Main
                 routerCost=dataBase[rout][4];
                 
                 freePortsThisRout=dataBase[rout][1]-1;
-                System.out.println("routerCOst:"+routerCost + " res:"+resCost);
+                
                 for(int swich=firstSwitch,freePortsThisSwich;swich<17;swich++)
                 {    
                     resCost=routerCost;        
@@ -64,21 +64,21 @@ public class Main
                             quanSwitch++;
 
                         switchCost=(quanSwitch*dataBase[swich][4]);
-                        System.out.println("routerCOst:"+routerCost+" Switchcost:"+switchCost+" res:"+resCost);
+                        
                         resCost+=switchCost;
-                        System.out.println("routerCOst:"+routerCost+" Switchcost:"+switchCost+" res:"+resCost);
+                        
                         if(resCost<moneu)
                         {
-                            System.out.println("routerCOst:"+routerCost+" Switchcost:"+switchCost+"Cablecost:"+" SSSSSSSSSSSSS");
+                            
                             for(int cable=firstCable;cable<19;cable++ )
                             {
                                 cableCost=dataBase[cable][4]*(quanSwitch+1);
                                 resCost+=cableCost;
-                                System.out.println("routerCOst:"+routerCost+" Switchcost:"+switchCost+"Cablecost:"+cableCost);
+                                System.out.println("routerCost:"+routerCost+" SwitchCost:"+switchCost+" CableCost:"+cableCost);
                                 if(dataBase[cable][3]>=speed && resCost<=moneu )
                                 {
                                     
-                                    System.out.println("Rout:"+dataBase[rout][0]+"\nSwitch:"+dataBase[swich][0]+" X"+quanSwitch+"\nCable:"+dataBase[cable][0]+"\nCost:"+resCost+"\n");
+                                    System.out.println("Rout:"+nameBase[rout]+"\nSwitch:"+nameBase[swich]+" X"+quanSwitch+"\nCable:"+nameBase[cable]+"\nCost:"+resCost+"\n");
                                 }
                                 resCost-=cableCost;
                             }

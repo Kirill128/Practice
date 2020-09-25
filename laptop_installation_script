@@ -1,0 +1,62 @@
+iwctl
+station wlan0 scan 
+station wlan0 connect "Miracle is impossible"
+privateconstructor
+exit
+timedatectl set-ntp true
+timedatectl status
+cfdisk
+ #root
+mkfs.ext4 /dev/sda1 -L "Arch"
+mount /dev/sda1 /mnt
+
+#boot
+mkfs.vfat -F32 /dev/sda2
+mkdir -p /mnt/boot
+mount /dev/sda2 /mnt/boot
+
+#swap
+mkswap /dev/sda3 -L "swap"
+swapon /dev/sda3
+
+#home
+mkfs.ext4 /dev/sda4 -L "Home"
+mkdir -p /mnt/home
+mount /dev/sda4 /mnt/home
+
+pacstrap /mnt base linux linux-firmware base-devel vim networkmanager
+genfstab -U /mnt >> /mnt/etc/fstab
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+hwclock --systohc
+vim /etc/locale.gen
+locale-gen
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+mkinitcpio -P
+
+passwd kas....
+bootctl install
+
+vim /boot/loader/loader.conf
+default arch       #Конфигурация загрузки по умолчанию
+timeout 5          #Время до загрузки
+editor 1           #Включение редактора, рекомендуется безопасностью 0
+
+vim /boot/loader/entries/arch.conf
+title Arch Linux
+linux /vmlinuz-linux
+# initrd  /intel-ucode.img   # раскомментировать для пользователей Intel
+initrd /initramfs-linux.img 
+options root=/dev/sda1 rw
+
+bootctl status
+
+(make user)
+useradd -G wheel -s /bin/bash -m username
+vim /etc/sudoers
+
+sudo pacman -S ufw
+sudo systemctl enable ufw.service
+
+
+sudo pacman -S xorg
+sudo pacman -S plasma konsole dolphin git gwenview
