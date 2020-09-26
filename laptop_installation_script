@@ -7,7 +7,7 @@ timedatectl set-ntp true
 timedatectl status
 cfdisk
  #root
-mkfs.ext4 /dev/sda1 -L "Arch"
+mkfs.ext4 /dev/sda1 
 mount /dev/sda1 /mnt
 
 #boot
@@ -16,21 +16,36 @@ mkdir -p /mnt/boot
 mount /dev/sda2 /mnt/boot
 
 #swap
-mkswap /dev/sda3 -L "swap"
+mkswap /dev/sda3 
 swapon /dev/sda3
 
 #home
-mkfs.ext4 /dev/sda4 -L "Home"
+mkfs.ext4 /dev/sda4 
 mkdir -p /mnt/home
 mount /dev/sda4 /mnt/home
 
 pacstrap /mnt base linux linux-firmware base-devel vim networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 hwclock --systohc
 vim /etc/locale.gen
 locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf
+
+
+Create the hostname file:
+
+/etc/hostname
+myhostname
+Add matching entries to hosts(5):
+
+/etc/hosts
+127.0.0.1	localhost
+::1		localhost
+127.0.1.1	myhostname.localdomain	myhostname
+
+
 mkinitcpio -P
 
 passwd kas....
@@ -52,6 +67,7 @@ bootctl status
 
 (make user)
 useradd -G wheel -s /bin/bash -m username
+passwd username
 vim /etc/sudoers
 
 sudo pacman -S ufw
