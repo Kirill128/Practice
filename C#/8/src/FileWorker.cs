@@ -6,28 +6,27 @@ namespace _8
 	class FileWorker
 	{
 		private static string pathToDatabase="/home/kirill/Practice/C#/8/database/";
-		public static int[][] getPerformance(int[] taskNum)
+		public static List<int[]> getPerformance(int[] taskNum)
 		{
 			
-			int [][]res;
+			List <int[]> res=new List<int[]>();
 			string fileName="performance.txt";
 			if(taskNum==null)
 				return null;
-
-			res=new int[taskNum.Length][];
-			for(int i=0;i<taskNum.Length;i++)
-				res[i]=new int[taskNum[i]];
-				
 			try
 			{
 				StreamReader file= new StreamReader(pathToDatabase+fileName);
-				for(int i=0;i<res.Length;i++)
+				string first;
+				for(first=file.ReadLine();first!=null;first=file.ReadLine());
 				{
-					string[] s=file.ReadLine().Split(new char[]{' '});
-					for(int j=0;j<res[i].Length;j++)
+					string[] sec=first.Split(new char[]{' '});
+					int [] third=new int[sec.Length];
+					for(int i=0;i<sec.Length;i++)
 					{
-						res[i][j]=Convert.ToInt32(s[j]);
+						third[i]=Convert.ToInt32(sec[i]);
 					}
+					res.Add(third);
+
 				}
 				file.Close();
 				return res;
@@ -66,8 +65,16 @@ namespace _8
 		{
 			string filePath="name.txt";
 			int []taskNum=labNum();
-			int [][] performance=getPerformance(taskNum);
-			try
+			List<int[]> performance=getPerformance(taskNum);
+			foreach(int[] arr in performance)
+			{
+				for(int j=0;j<arr.Length;j++)
+				{
+					Console.Write($"{arr[j]} ");
+				}
+				Console.WriteLine();
+			}
+		/*	try
 			{
 				StreamReader file=new StreamReader(pathToDatabase+filePath);
 				List<Student> res=new List<Student>();
@@ -85,14 +92,16 @@ namespace _8
 					}
 					res.Add(new Student(s,OneStud));
 				}
-					
+						
+				Console.WriteLine("SDFS");
 				return res;
 			}
 			catch(Exception e)
 			{
 				Console.WriteLine(e.Message);
 				return null;
-			}
+			} */
+			return null;
 		}
 	}
 }	

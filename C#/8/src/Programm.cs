@@ -7,8 +7,9 @@ namespace _8
         public static void Main(string[] args)
         {	
 		List<Student> students=FileWorker.getStudents();
-		foreach(Student stud in students)
-		{
+		if(students!=null){
+		  foreach(Student stud in students)
+		  {
 			Console.WriteLine($"{stud.Name}");
 			for(int i=0;i<stud.Performance.Length;i++)
 			{
@@ -19,7 +20,9 @@ namespace _8
 				Console.WriteLine();
 			}
 			Console.WriteLine();
-		}
+		  }
+		}else 
+			Console.WriteLine("SFDFS");
 	}
     }
 }
