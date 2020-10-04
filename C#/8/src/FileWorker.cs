@@ -15,26 +15,27 @@ namespace _8
 				return null;
 			try
 			{
-				StreamReader file= new StreamReader(pathToDatabase+fileName);
-				string first;
-				for(first=file.ReadLine();first!=null;first=file.ReadLine());
+			    using(StreamReader file= new StreamReader(pathToDatabase+fileName)){
+				string first;	
+				while((first=file.ReadLine())!=null);
 				{
-					string[] sec=first.Split(new char[]{' '});
+					Console.WriteLine("ORiao");
+					string[] sec=first.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries);
 					int [] third=new int[sec.Length];
 					for(int i=0;i<sec.Length;i++)
 					{
 						third[i]=Convert.ToInt32(sec[i]);
-					}
+						Console.WriteLine(third[i]);
+					}	
 					res.Add(third);
-
 				}
-				file.Close();
 				return res;
+			    }
 			}
 			catch(Exception e)
 			{
 				Console.WriteLine(e.Message);
-				return null;
+				return res;
 			}
 		
 		}
@@ -52,8 +53,6 @@ namespace _8
 				}
 				file.Close();
 				return res;
-				
-
 			}
 			catch(Exception e)
 			{
