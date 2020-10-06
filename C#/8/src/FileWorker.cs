@@ -15,22 +15,26 @@ namespace _8
 				return null;
 			try
 			{
-			    using(StreamReader file= new StreamReader(pathToDatabase+fileName)){
-				string first;	
-				while((first=file.ReadLine())!=null);
+			        StreamReader file= new StreamReader(pathToDatabase+fileName);
+				string first=file.ReadLine();
+				int [] third;	
+				while(first!=null);
 				{
 					Console.WriteLine("ORiao");
-					string[] sec=first.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries);
-					int [] third=new int[sec.Length];
-					for(int i=0;i<sec.Length;i++)
+					string[] s=first.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries);
+					Console.WriteLine("Obf");
+					third=new int[s.Length];
+					Console.WriteLine("hi");
+					for(int i=0;i<s.Length;i++)
 					{
-						third[i]=Convert.ToInt32(sec[i]);
+						third[i]=Convert.ToInt32(s[i]);
 						Console.WriteLine(third[i]);
 					}	
 					res.Add(third);
+					first=file.ReadLine();
 				}
 				return res;
-			    }
+			    
 			}
 			catch(Exception e)
 			{
