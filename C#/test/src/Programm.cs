@@ -5,11 +5,11 @@ namespace _test
     class Programm
     {
 		public static void Main(string[] args){
-			LinkedList<Student>students=FileWorker.getstud();
+			LinkedList<Student>students=FileWorker.getStudFromTxt();
 			bool doWork=true;
 			int taskNum;
 			while(doWork){
-				Console.WriteLine("1- input or change student notes\n2-show all students notes\n3-show the student success labs list\n4-student notes table ");
+				Console.WriteLine("1- input or change student notes\n2-show all students notes\n3-show the student success labs list\n4-student notes table\n5-save all data\n6-get last saved data\n7-get from txt ");
 				taskNum=Convert.ToInt32(Console.ReadLine());
 				switch(taskNum){
 					case 1:{
@@ -84,6 +84,16 @@ namespace _test
 						}
 					}
 					break;
+					case 5:{
+						FileWorker.saveTrueData(students);
+
+					}break;
+					case 6:{
+						students=FileWorker.getTrueData();
+					}break;
+					case 7:{
+						students=FileWorker.getStudFromTxt();
+					}break;
 					default:{
 						Console.WriteLine("ERROR");
 						doWork=false;
@@ -109,6 +119,6 @@ namespace _test
 				}
 
 		}
-		
+
     }
 }

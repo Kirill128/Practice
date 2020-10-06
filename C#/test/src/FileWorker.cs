@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 namespace _test
 {
 	class FileWorker
@@ -71,7 +72,7 @@ namespace _test
 				return names;
 
 		}
-		public static LinkedList<Student> getstud(){
+		public static LinkedList<Student> getStudFromTxt(){
 			int[]labs=labNum();
 			LinkedList<int[]>per=getper();
 			LinkedList<string> names=getname();
@@ -90,7 +91,25 @@ namespace _test
 			return students;
 		}
 
-		public static 
+		public static void saveTrueData(LinkedList<Student> students){	
+			string fileName="SavedData.dat";
+			BinaryFormatter formatter = new BinaryFormatter();
+			using (FileStream fs = new FileStream(pathToDatabase+fileName, FileMode.OpenOrCreate))
+			{
+				formatter.Serialize(fs, students);
+				Console.WriteLine("Объект сериализован");
+			}
+		}
+		public static LinkedList<Student> getTrueData(){
+			string fileName="SavedData.dat";
+			LinkedList<Student> res;
+			BinaryFormatter formatter = new BinaryFormatter();
+			using (FileStream fs = new FileStream(pathToDatabase+fileName, FileMode.OpenOrCreate))
+			{
+				res = (LinkedList<Student>)formatter.Deserialize(fs);
+			}
+			return res;
+		}
 	}
 
 }
