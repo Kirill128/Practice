@@ -1,5 +1,6 @@
 namespace _test
 {
+	[Serializable]
 	class Student
 	{
 		private int[][] performance;

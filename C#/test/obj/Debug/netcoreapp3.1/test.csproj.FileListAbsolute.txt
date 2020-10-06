@@ -9,3 +9,16 @@
 /home/kirill/Practice/C#/test/bin/Debug/netcoreapp3.1/test.pdb
 /home/kirill/Practice/C#/test/obj/Debug/netcoreapp3.1/test.dll
 /home/kirill/Practice/C#/test/obj/Debug/netcoreapp3.1/test.pdb
+I:\Practice\C#\test\obj\Debug\netcoreapp3.1\test.csprojAssemblyReference.cache
+I:\Practice\C#\test\obj\Debug\netcoreapp3.1\test.AssemblyInfoInputs.cache
+I:\Practice\C#\test\obj\Debug\netcoreapp3.1\test.AssemblyInfo.cs
+I:\Practice\C#\test\obj\Debug\netcoreapp3.1\test.csproj.CoreCompileInputs.cache
+I:\Practice\C#\test\obj\Debug\netcoreapp3.1\test.dll
+I:\Practice\C#\test\obj\Debug\netcoreapp3.1\test.pdb
+I:\Practice\C#\test\bin\Debug\netcoreapp3.1\test.exe
+I:\Practice\C#\test\bin\Debug\netcoreapp3.1\test.deps.json
+I:\Practice\C#\test\bin\Debug\netcoreapp3.1\test.runtimeconfig.json
+I:\Practice\C#\test\bin\Debug\netcoreapp3.1\test.runtimeconfig.dev.json
+I:\Practice\C#\test\bin\Debug\netcoreapp3.1\test.dll
+I:\Practice\C#\test\bin\Debug\netcoreapp3.1\test.pdb
+I:\Practice\C#\test\obj\Debug\netcoreapp3.1\test.genruntimeconfig.cache
