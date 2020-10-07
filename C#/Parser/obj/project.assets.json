@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kirill/Practice/C#/test/test.csproj",
-      "projectName": "test",
-      "projectPath": "/home/kirill/Practice/C#/test/test.csproj",
+      "projectUniqueName": "/home/kirill/Practice/C#/Parser/Parser.csproj",
+      "projectName": "Parser",
+      "projectPath": "/home/kirill/Practice/C#/Parser/Parser.csproj",
       "packagesPath": "/home/kirill/.nuget/packages/",
-      "outputPath": "/home/kirill/Practice/C#/test/obj/",
+      "outputPath": "/home/kirill/Practice/C#/Parser/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/kirill/.nuget/NuGet/NuGet.Config"

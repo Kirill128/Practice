@@ -6,7 +6,7 @@ namespace _test
 {
 	class FileWorker
 	{//I:\\Practice\\C#\\test\\database\\            /home/kirill/Practice/C#/test/database/
-		private static string pathToDatabase="I:\\Practice\\C#\\test\\database\\";
+		private static string pathToDatabase="/home/kirill/Practice/C#/test/database/";
 
 		public static LinkedList<int[]> getper()
 		{
