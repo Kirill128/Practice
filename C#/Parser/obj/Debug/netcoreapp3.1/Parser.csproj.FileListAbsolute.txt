@@ -1,0 +1,11 @@
+/home/kirill/Practice/C#/Parser/obj/Debug/netcoreapp3.1/Parser.csprojAssemblyReference.cache
+/home/kirill/Practice/C#/Parser/obj/Debug/netcoreapp3.1/Parser.AssemblyInfoInputs.cache
+/home/kirill/Practice/C#/Parser/obj/Debug/netcoreapp3.1/Parser.AssemblyInfo.cs
+/home/kirill/Practice/C#/Parser/bin/Debug/netcoreapp3.1/Parser
+/home/kirill/Practice/C#/Parser/bin/Debug/netcoreapp3.1/Parser.deps.json
+/home/kirill/Practice/C#/Parser/bin/Debug/netcoreapp3.1/Parser.runtimeconfig.json
+/home/kirill/Practice/C#/Parser/bin/Debug/netcoreapp3.1/Parser.runtimeconfig.dev.json
+/home/kirill/Practice/C#/Parser/bin/Debug/netcoreapp3.1/Parser.dll
+/home/kirill/Practice/C#/Parser/bin/Debug/netcoreapp3.1/Parser.pdb
+/home/kirill/Practice/C#/Parser/obj/Debug/netcoreapp3.1/Parser.dll
+/home/kirill/Practice/C#/Parser/obj/Debug/netcoreapp3.1/Parser.pdb

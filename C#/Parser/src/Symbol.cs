@@ -1,7 +1,10 @@
 namespace Parser{
 	class Symbol{
-		private char value;
 		public char Value{get;set;}
+		public static int Count{get;set;}
+		public Symbol(char symb){
+            this.Value=symb;
+        }
 		
 	}
 }
