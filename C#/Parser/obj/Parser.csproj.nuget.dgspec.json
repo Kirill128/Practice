@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "I:\\Practice\\C#\\Parser\\Parser.csproj": {}
+    "/home/kirill/Practice/C#/Parser/Parser.csproj": {}
   },
   "projects": {
-    "I:\\Practice\\C#\\Parser\\Parser.csproj": {
+    "/home/kirill/Practice/C#/Parser/Parser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\Practice\\C#\\Parser\\Parser.csproj",
+        "projectUniqueName": "/home/kirill/Practice/C#/Parser/Parser.csproj",
         "projectName": "Parser",
-        "projectPath": "I:\\Practice\\C#\\Parser\\Parser.csproj",
-        "packagesPath": "C:\\Users\\Кирилл\\.nuget\\packages\\",
-        "outputPath": "I:\\Practice\\C#\\Parser\\obj\\",
+        "projectPath": "/home/kirill/Practice/C#/Parser/Parser.csproj",
+        "packagesPath": "/home/kirill/.nuget/packages/",
+        "outputPath": "/home/kirill/Practice/C#/Parser/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Кирилл\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/kirill/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -45,12 +45,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.8, 3.1.8]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.108/RuntimeIdentifierGraph.json"
         }
       }
     }
