@@ -10,4 +10,4 @@ I selected these particular books because I wanted to provide a list of books th
 
 The books on this list are designed specifically to give you a solid foundation in all of the areas that are important to a software developer.
 
-I’ve broken up the types of books by the topic areas that I find are most important—and many of them sorely neglected.
+I’ve broken up the types of books by the topic areas that I find are most important and many of them sorely neglected.

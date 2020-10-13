@@ -5,7 +5,7 @@ namespace Parser{
 		public Sentens [] Sentenses{get;set;}
 		public string Value{get;set;}
 		public  Text(string txt){
-            allTxt=txt;
+            Value=txt;
 			string[] allStr=txt.Split(new char[]{'.','!','?'});
             Regex reg=new Regex(@"\s+");
             int importantString=0;
