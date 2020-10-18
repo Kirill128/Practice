@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 namespace Parser {
-    class Program { //I:\\Practice\\C#\\Parser\\data\\Text.txt      /home/kirill/Practice/C#/Parser/data/Text.txt
+    class Program { //I:\\Practice\\C#\\Parser\\data\\Text.txt      /home/kirill/practice/c#/parser/data/text.txt
         static void Main (string[] args) {
-            Text txt = new Text (ReadFile("I:\\Practice\\C#\\Parser\\data\\Text.txt"));
+            Text txt = new Text (ReadFile("/home/kirill/Practice/C#/Parser/data/Text.txt"));
             showByWords (txt);
             //task1
             Sentens[] sen = sortBySentensLength (txt);
@@ -17,7 +17,7 @@ namespace Parser {
             try{
                 int wordlength=Convert.ToInt32(Console.ReadLine());
                 List<Word> words=getWordFromQuestionSentens(wordlength,txt);
-                foreach(Word w in words){
+            	foreach(Word w in words){
                     Console.WriteLine(w.Value);
                 }
             }catch(Exception e){
@@ -44,6 +44,7 @@ namespace Parser {
                 }
                 if(isQuestion){
                     foreach(Word w in sentenses[senCount].Words){
+			Console.WriteLine(w.Value+' '+w.Value.Length);
                         if(length==w.Value.Length){
                             foreach(Word wor in res){
                                 if(wor.Value!=w.Value)res.Add(w);

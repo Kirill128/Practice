@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/kirill/Practice/C#/8/8.csproj": {}
+    "/home/kirill/Practice/C#/6/6.csproj": {}
   },
   "projects": {
-    "/home/kirill/Practice/C#/8/8.csproj": {
+    "/home/kirill/Practice/C#/6/6.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kirill/Practice/C#/8/8.csproj",
-        "projectName": "8",
-        "projectPath": "/home/kirill/Practice/C#/8/8.csproj",
+        "projectUniqueName": "/home/kirill/Practice/C#/6/6.csproj",
+        "projectName": "6",
+        "projectPath": "/home/kirill/Practice/C#/6/6.csproj",
         "packagesPath": "/home/kirill/.nuget/packages/",
-        "outputPath": "/home/kirill/Practice/C#/8/obj/",
+        "outputPath": "/home/kirill/Practice/C#/6/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/kirill/.nuget/NuGet/NuGet.Config"
