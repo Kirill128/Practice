@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
+using System.Runtime.Remoting;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -13,20 +13,26 @@ namespace Cards
         public string FirmName { private set; get; }
         public string FirmRule { private set; get; }
 
+        private static LinkedList<string[]>  firmsData;
+        private LinkedList<string[]> FirmsData {
+            set{ firmsData = value; }
+            get{  return firmsData; }
+        }
         public Card(string num)
         {
+            if(FirmsData==null)FirmsData= getFirms("I:\\Practice\\C#\\Cards\\firmsdata\\firmsrules.txt");
             this.Num = num;
             this.IsLegal = checkLegit(num);
-            LinkedList<string[]> firms = getFirms("I:\\Practice\\C#\\Cards\\firmsdata\\firmsrules.txt");
-            LinkedListNode<string[]> firm = firms.First;
-            do{
-                if (Regex.IsMatch(firm.Value[0], firm.Value[1])) {
+            LinkedListNode<string[]> firm = FirmsData.First;
+            while(firm!=null){
+                Console.WriteLine("Reg:"+firm.Value[1]+"  "+Regex.IsMatch(this.Num, @firm.Value[1]));
+                if (Regex.IsMatch(this.Num, @firm.Value[1])) {
                     this.FirmName = firm.Value[0];
                     this.FirmRule = firm.Value[1];
                     break;
                 }
                 firm = firm.Next;
-            }while (firm!=firms.Last) ;
+            }
         }
         public static LinkedList<string[]> getFirms(string path)
         {

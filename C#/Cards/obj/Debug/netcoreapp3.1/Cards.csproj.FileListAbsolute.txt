@@ -1,0 +1,13 @@
+I:\Practice\C#\Cards\obj\Debug\netcoreapp3.1\Cards.csprojAssemblyReference.cache
+I:\Practice\C#\Cards\obj\Debug\netcoreapp3.1\Cards.AssemblyInfoInputs.cache
+I:\Practice\C#\Cards\obj\Debug\netcoreapp3.1\Cards.AssemblyInfo.cs
+I:\Practice\C#\Cards\obj\Debug\netcoreapp3.1\Cards.csproj.CoreCompileInputs.cache
+I:\Practice\C#\Cards\bin\Debug\netcoreapp3.1\Cards.exe
+I:\Practice\C#\Cards\bin\Debug\netcoreapp3.1\Cards.deps.json
+I:\Practice\C#\Cards\bin\Debug\netcoreapp3.1\Cards.runtimeconfig.json
+I:\Practice\C#\Cards\bin\Debug\netcoreapp3.1\Cards.runtimeconfig.dev.json
+I:\Practice\C#\Cards\bin\Debug\netcoreapp3.1\Cards.dll
+I:\Practice\C#\Cards\bin\Debug\netcoreapp3.1\Cards.pdb
+I:\Practice\C#\Cards\obj\Debug\netcoreapp3.1\Cards.dll
+I:\Practice\C#\Cards\obj\Debug\netcoreapp3.1\Cards.pdb
+I:\Practice\C#\Cards\obj\Debug\netcoreapp3.1\Cards.genruntimeconfig.cache
