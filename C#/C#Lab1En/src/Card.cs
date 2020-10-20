@@ -35,7 +35,7 @@ namespace C_Lab1En
         public Card(string num)
         {
             CardNum=num;   
-	    IsLegal=CheckCard.checkLegit(this);
+	        IsLegal=CheckCard.checkLegit(this);
         }   
     }
 }

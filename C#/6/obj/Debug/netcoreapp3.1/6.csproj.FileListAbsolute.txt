@@ -9,3 +9,16 @@
 /home/kirill/Practice/C#/6/obj/Debug/netcoreapp3.1/6.AssemblyInfo.cs
 /home/kirill/Practice/C#/6/obj/Debug/netcoreapp3.1/6.dll
 /home/kirill/Practice/C#/6/obj/Debug/netcoreapp3.1/6.pdb
+I:\Practice\C#\6\bin\Debug\netcoreapp3.1\6.exe
+I:\Practice\C#\6\bin\Debug\netcoreapp3.1\6.deps.json
+I:\Practice\C#\6\bin\Debug\netcoreapp3.1\6.runtimeconfig.json
+I:\Practice\C#\6\bin\Debug\netcoreapp3.1\6.runtimeconfig.dev.json
+I:\Practice\C#\6\bin\Debug\netcoreapp3.1\6.dll
+I:\Practice\C#\6\bin\Debug\netcoreapp3.1\6.pdb
+I:\Practice\C#\6\obj\Debug\netcoreapp3.1\6.csprojAssemblyReference.cache
+I:\Practice\C#\6\obj\Debug\netcoreapp3.1\6.AssemblyInfoInputs.cache
+I:\Practice\C#\6\obj\Debug\netcoreapp3.1\6.AssemblyInfo.cs
+I:\Practice\C#\6\obj\Debug\netcoreapp3.1\6.csproj.CoreCompileInputs.cache
+I:\Practice\C#\6\obj\Debug\netcoreapp3.1\6.dll
+I:\Practice\C#\6\obj\Debug\netcoreapp3.1\6.pdb
+I:\Practice\C#\6\obj\Debug\netcoreapp3.1\6.genruntimeconfig.cache

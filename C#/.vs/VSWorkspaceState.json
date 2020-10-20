@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\test",
-    "\\test\\database",
-    "\\test\\src"
+    "\\C#Lab1En",
+    "\\C#Lab1En\\src",
+    "\\Cards",
+    "\\Cards\\firmsdata",
+    "\\Cards\\src"
   ],
-  "SelectedNode": "\\test\\database\\SavedData.dat",
+  "SelectedNode": "\\C#Lab1En\\src\\Card.cs",
   "PreviewInSolutionExplorer": false
 }
