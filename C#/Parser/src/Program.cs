@@ -13,18 +13,26 @@ namespace Parser {
                 Console.WriteLine (s.Words.Length);
             }
             //task2
-            Console.WriteLine("Input length of word:");
+            Console.WriteLine("\nTask 2\nInput length of word:");
             try{
                 int wordlength=Convert.ToInt32(Console.ReadLine());
                 List<Word> words=getWordFromQuestionSentens(wordlength,txt);
             	foreach(Word w in words){
-                    Console.WriteLine(w.Value);
+                    Console.WriteLine("@"+w.Value);
                 }
             }catch(Exception e){
                 Console.WriteLine(e.Message);
             }
-
+	    //task3
+	    Console.WriteLine("\nTask 3\nInput length of word:");
+	    try{
+                int wordlength=Convert.ToInt32(Console.ReadLine());
+                 
+	    }catch(Exception e){
+                Console.WriteLine(e.Message);
+            }
         }
+	
         public static void showByWords (Text txt) {
             foreach (Sentens sen in txt.Sentenses) {
                 foreach (Word word in sen.Words) {
@@ -40,21 +48,30 @@ namespace Parser {
             for(int senCount=0;senCount<sentenses.Length;senCount++){
                 isQuestion=false;
                 foreach(PunctuationSymbol p in sentenses[senCount].PunctuationSymbols){
-                    if(p.Value=='?')isQuestion=true;
+                    if(p.Value=='?'){
+			    isQuestion = true;
+			    break;
+		    }
                 }
                 if(isQuestion){
                     foreach(Word w in sentenses[senCount].Words){
 			Console.WriteLine(w.Value+' '+w.Value.Length);
                         if(length==w.Value.Length){
-                            foreach(Word wor in res){
-                                if(wor.Value!=w.Value)res.Add(w);
-                            }
+                           bool contains=false;
+			   foreach(Word wor in res){
+			   	if(wor.Value==w.Value){
+					contains = true;
+					break;
+				}
+			   } 
+			   if(!contains)res.Add(w);
                         }
                     }
                 }
             }
             return res;
         }
+
         public static Sentens[] sortBySentensLength (Text txt) {
             Sentens[] sentenses = new Sentens[txt.Sentenses.Length];
             for (int i = 0; i < sentenses.Length; i++) {

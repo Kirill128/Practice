@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace Parser{
 	class Sentens{
         public Word [] Words{get;set;}
+	public List<Word> WordsList{get;set;}
 		public List<PunctuationSymbol> PunctuationSymbols{get;set;}
         public string Value{get;set;} 
 		public Sentens(string txt){
@@ -23,6 +24,7 @@ namespace Parser{
 			}
 			PunctuationSymbols=punctuationSymbols;
 			Words=words.ToArray();
+			WordsList=words;
 		}
 	}
 }

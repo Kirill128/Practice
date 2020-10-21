@@ -12,9 +12,7 @@ namespace Parser {
             Value=s;
         }
         public static bool IsPunctuationSymbol(char value){
-            if( value==',' || value==':' || value=='!' || value=='?' || value=='-' || value=='.' )
-                return true;
-            return false;
+            return ( value==',' || value==':' || value=='!' || value=='?' || value=='-' || value=='.' );
         }
     }
 }
