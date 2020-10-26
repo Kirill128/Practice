@@ -4,7 +4,7 @@ using System.IO;
 namespace Parser {
     class Program { //I:\\Practice\\C#\\Parser\\data\\Text.txt      /home/kirill/practice/c#/parser/data/text.txt
         static void Main (string[] args) {
-            Text txt = new Text (ReadFile("/home/kirill/Practice/C#/Parser/data/Text.txt"));
+            Text txt = new Text (ReadFile("I:\\Practice\\C#\\Parser\\data\\Text.txt"));
             showByWords (txt);
             //task1
             Sentens[] sen = sortBySentensLength (txt);

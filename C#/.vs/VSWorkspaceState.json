@@ -1,12 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\C#Lab1En",
     "\\C#Lab1En\\src",
-    "\\Cards",
     "\\Cards\\firmsdata",
-    "\\Cards\\src"
+    "\\Cards\\src",
+    "\\Parser",
+    "\\ParserWithList",
+    "\\ParserWithList\\src",
+    "\\Parser\\src"
   ],
-  "SelectedNode": "\\Cards",
+  "SelectedNode": "\\ParserWithList\\src\\Text.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -20,6 +20,7 @@ namespace Parser {
 			//
 			string[] allStr = sentences.ToArray ();
 			Value = txt;
+			
 			Regex reg = new Regex (@"\s+");
 			int importantString = 0;
 			for (int i = 0; i < allStr.Length; i++) {
