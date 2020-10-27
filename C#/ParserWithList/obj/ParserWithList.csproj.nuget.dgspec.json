@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "I:\\Practice\\C#\\ParserWithList\\ParserWithList.csproj": {}
+    "/home/kirill/Practice/C#/ParserWithList/ParserWithList.csproj": {}
   },
   "projects": {
-    "I:\\Practice\\C#\\ParserWithList\\ParserWithList.csproj": {
+    "/home/kirill/Practice/C#/ParserWithList/ParserWithList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\Practice\\C#\\ParserWithList\\ParserWithList.csproj",
+        "projectUniqueName": "/home/kirill/Practice/C#/ParserWithList/ParserWithList.csproj",
         "projectName": "ParserWithList",
-        "projectPath": "I:\\Practice\\C#\\ParserWithList\\ParserWithList.csproj",
-        "packagesPath": "C:\\Users\\Кирилл\\.nuget\\packages\\",
-        "outputPath": "I:\\Practice\\C#\\ParserWithList\\obj\\",
+        "projectPath": "/home/kirill/Practice/C#/ParserWithList/ParserWithList.csproj",
+        "packagesPath": "/home/kirill/.nuget/packages/",
+        "outputPath": "/home/kirill/Practice/C#/ParserWithList/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Кирилл\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/kirill/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -47,12 +45,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.8, 3.1.8]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.108/RuntimeIdentifierGraph.json"
         }
       }
     }

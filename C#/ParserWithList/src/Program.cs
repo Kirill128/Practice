@@ -8,7 +8,7 @@ namespace ParserWithList {
     class Program
     { //"I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"     /home/kirill/practice/c#/parser/data/text.txt
         static void Main (string[] args) {
-            Text txt = new Text(ReadFile("I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"));
+            Text txt = new Text(ReadFile("/home/kirill/Practice/C#/ParserWithList/data/Text.txt"));
             foreach (Sentens s in txt.Sentenses)
             {
                 Console.WriteLine(s.Value);          
@@ -25,7 +25,11 @@ namespace ParserWithList {
         public static List<Sentens> getSortedBySentensLength(Text txt)
         {
             List<Sentens> sentenses = new List<Sentens>();
-            IEnumerator ie1 = txt.Sentenses.GetEnumerator(), ie2=txt.Sentenses.GetEnumerator();
+            List<Sentens> sortedList=new List<Sentens>();
+            foreach(Sentens s in txt.Sentenses){
+                sentenses.Add(new Sentens(s.Words,s.PunctuationSymbols));
+            }
+            IEnumerator ie1 = sentenses.GetEnumerator(), ie2=sentenses.GetEnumerator();
             Sentens bufSen1,bufSen2,minSen;
 
             while (ie1.MoveNext()) {
@@ -39,11 +43,12 @@ namespace ParserWithList {
                     if (bufSen2.Words.Count < minSen.Words.Count)
                         minSen = bufSen2;
                 }
-                sentenses.Add(new Sentens(minSen.Words, minSen.PunctuationSymbols));
+                sortedList.Add(minSen);
+                sentenses.Remove(minSen);
                 ie2.Reset();
             }
 
-            return sentenses;
+            return sortedList;
         }
         public static string ReadFile(string path)
         {

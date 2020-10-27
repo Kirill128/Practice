@@ -20,7 +20,7 @@ namespace Cards
         }
         public Card(string num)
         {
-            if(FirmsData==null)FirmsData= getFirms("I:\\Practice\\C#\\Cards\\firmsdata\\firmsrules.txt");
+            if(FirmsData==null)FirmsData= getFirms("/home/kirill/Practice/C#/Cards/firmsdata/firmsrules.txt");
             this.Num = num;
             this.IsLegal = checkLegit(num);
             LinkedListNode<string[]> firm = FirmsData.First;
