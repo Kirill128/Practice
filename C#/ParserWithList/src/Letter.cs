@@ -2,7 +2,7 @@ namespace ParserWithList
 {
     class Letter:Symbol{
         private char val;
-        public virtual char Value{
+        public override char Value{
             get{return val;}
             set{
                 if(Letter.isLetter(value))
@@ -13,10 +13,10 @@ namespace ParserWithList
             this.Value=symb;
         }
         public static bool isLetter(char let){
-            return (int)let>59 && (int)let<67;
+            return ((int)let>=65 && (int)let<=90)||((int)let >= 97 && (int)let <= 122);
         }
-        public static bool isLetter(Letter let){
-            return (int)let>59 && (int)let<67;
+        public static bool isLetter(Symbol let){
+            return ((int)let.Value >= 65 && (int)let.Value <= 90) || ((int)let.Value >= 97 && (int)let.Value <= 122);
         }
     }
 }
