@@ -21,34 +21,21 @@ namespace ParserWithList {
                 Console.WriteLine(s.Value);
             }
             //task 2
+            
         }
         public static List<Sentens> getSortedBySentensLength(Text txt)
         {
-            List<Sentens> sentenses = new List<Sentens>();
-            List<Sentens> sortedList=new List<Sentens>();
-            foreach(Sentens s in txt.Sentenses){
-                sentenses.Add(new Sentens(s.Words,s.PunctuationSymbols));
-            }
-            IEnumerator ie1 = sentenses.GetEnumerator(), ie2=sentenses.GetEnumerator();
-            Sentens bufSen1,bufSen2,minSen;
-
-            while (ie1.MoveNext()) {
-                ie2.MoveNext();
-                bufSen1 = (Sentens)ie1.Current;
-                minSen = bufSen1;
-                while (ie2.Current != ie1.Current) ie2.MoveNext();
-
-                while (ie2.MoveNext()) {
-                    bufSen2 = (Sentens)ie2.Current;
-                    if (bufSen2.Words.Count < minSen.Words.Count)
-                        minSen = bufSen2;
+            Sentens[] sen = txt.Sentenses.ToArray();
+            for(int i=0;i<sen.Length;i++){
+                for(int j=i;j<sen.Length;j++){
+                    if(sen[i].Words.Count>sen[j].Words.Count){
+                        Sentens buf=sen[i];
+                        sen[i]=sen[j];
+                        sen[j]=buf;
+                    }
                 }
-                sortedList.Add(minSen);
-                sentenses.Remove(minSen);
-                ie2.Reset();
             }
-
-            return sortedList;
+            return new List<Sentens>(sen);
         }
         public static string ReadFile(string path)
         {
