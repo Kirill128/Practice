@@ -55,15 +55,15 @@ namespace Parser {
                 }
                 if(isQuestion){
                     foreach(Word w in sentenses[senCount].Words){
-			Console.WriteLine(w.Value+' '+w.Value.Length);
+                        Console.WriteLine(w.Value+' '+w.Value.Length);
                         if(length==w.Value.Length){
-                           bool contains=false;
-			   foreach(Word wor in res){
-			   	if(wor.Value==w.Value){
-					contains = true;
-					break;
-				}
-			   } 
+                                bool contains=false;
+                                foreach(Word wor in res){
+                                if(wor.Value==w.Value){
+                                    contains = true;
+                                    break;
+                                }
+                        } 
 			   if(!contains)res.Add(w);
                         }
                     }
