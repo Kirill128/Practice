@@ -10,7 +10,7 @@ namespace ParserWithList
     { //"I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"     /home/kirill/practice/c#/parser/data/text.txt
         static void Main(string[] args)
         {
-            Text txt = new Text(ReadFile("I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"));
+            Text txt = new Text(ReadFile("/home/kirill/Practice/C#/ParserWithList/data/Text.txt"));
             foreach (Sentens s in txt.Sentenses)
             {
                 Console.WriteLine(s.Value);
@@ -39,51 +39,39 @@ namespace ParserWithList
             {
                 Console.WriteLine(s.Value);
             }
+            //task 4
+            
         }
         public static void removeWordsByLetters(Text text,int length,Letter [] checkLetters){//Сгорело из-за реализации листов. 
             //при foreach и IEnumarator нельзя менять коллекцию(даже удалять)!!
-            IEnumerator ie;//HELP, за что ты так со мной, шарп
+            IEnumerator ieS,ieP;//HELP, за что ты так со мной, шарп
             Symbol firstSymbol;
-            List<Word> newWords = new List<Word>();
-            List<PunctuationSymbol> newPunctSymbols = new List<PunctuationSymbol>();
+            
+            
             foreach(Sentens sentens in text.Sentenses){
+                List<Word> newWords = new List<Word>();
                 foreach (Word wordIter in sentens.Words) {
-                    if (wordIter.Symbols.Count == length)
-                    {
-                        ie = wordIter.Symbols.GetEnumerator();
-                        if (ie.MoveNext() && Letter.isLetter(firstSymbol = (Symbol)ie.Current))
-                        {
-                            foreach (Letter l in checkLetters)
-                            {
-                                if (l.Value != firstSymbol.Value)
-                                {
-                                    newWords.Add(wordIter);
-                                   
-                                }
-                            }
-                        } else
-                            newWords.Add(wordIter);
-
-
-                    }
-                    else
-                        newWords.Add(wordIter);
-
+                    
                     bool correct = true; 
-                    ie = wordIter.Symbols.GetEnumerator();
-                    if (wordIter.Symbols.Count != length && ie.MoveNext() && !Letter.isLetter(firstSymbol = (Symbol)ie.Current)){
+                    ieS = wordIter.Symbols.GetEnumerator();
+                    ieS.MoveNext();
+                    firstSymbol=(Symbol)ieS.Current;
+                    if (wordIter.Symbols.Count != length && Letter.isLetter(firstSymbol)){
                         foreach (Letter l in checkLetters) {
-                            if (l.Value == firstSymbol.Value) correct = false;
+                            if (l.Value == firstSymbol.Value) {
+                                correct = false;
+                                break;
+                            }
                         }
                         if (correct) {
                             newWords.Add(wordIter);
-                            if ()
-                            else
+                            
                         }
                     }
 
                 }
                 sentens.Words = newWords;
+
             }
             
         }

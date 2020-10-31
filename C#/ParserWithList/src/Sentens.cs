@@ -8,6 +8,8 @@ namespace ParserWithList
 	class Sentens{
         public List<Word> Words{get;set;}
 		public List<PunctuationSymbol> PunctuationSymbols{get;set;}
+		
+
 		public string Value{
 			get {
 				StringBuilder val = new StringBuilder(40);
