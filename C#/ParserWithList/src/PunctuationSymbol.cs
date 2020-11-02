@@ -2,6 +2,7 @@ namespace ParserWithList
 {
 	class PunctuationSymbol:Symbol {
         private char val;
+        private static char[] punctsSymb = new char[] { ',', ':', '!', '?', '-', '.', '\\', '_'};
         public override char Value{
             get{return val;}
             set{
@@ -13,11 +14,18 @@ namespace ParserWithList
             Value=s;
         }
         public static bool IsPunctuationSymbol(char value){
-            return ( value==',' || value==':' || value=='!' || value=='?' || value=='-' || value=='.' );
+            foreach (char s in punctsSymb) {
+                if (s==value) return true;
+            }
+            return false;   
         }
         public static bool IsPunctuationSymbol(PunctuationSymbol symb)
         {
-            return (symb.Value == ',' || symb.Value == ':' || symb.Value == '!' || symb.Value == '?' || symb.Value == '-' || symb.Value == '.');
+            foreach (char s in punctsSymb)
+            {
+                if (s == symb.Value) return true;
+            }
+            return false;
         }
     }
 }

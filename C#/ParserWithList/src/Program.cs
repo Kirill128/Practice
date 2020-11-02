@@ -10,7 +10,7 @@ namespace ParserWithList
     { //"I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"     /home/kirill/practice/c#/parser/data/text.txt
         static void Main(string[] args)
         {
-            Text txt = new Text(ReadFile("/home/kirill/Practice/C#/ParserWithList/data/Text.txt"));
+            Text txt = new Text(ReadFile("I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"));
             foreach (Sentens s in txt.Sentenses)
             {
                 Console.WriteLine(s.Value);
@@ -22,19 +22,23 @@ namespace ParserWithList
             foreach (Sentens s in task1)
             {
                 Console.WriteLine(s.Value);
+                
             }
+            
             //task 2
             Console.WriteLine("\nTask 2\nInput length of word:");
             int wordlength = getWordLength();
             List<Word> words = getWordsFromQuestionSentenses(txt, wordlength);
             foreach (Word w in words)
             {
-                Console.WriteLine("@" + w.Value);
+                Console.WriteLine("@ " + w.Value);
             }
 
-            //task3
+            //task3              B, C, D, F, G, H, J, K, L, M, N, P, Q, R, S, T, V, W, X, Z
             Console.WriteLine("\nTask 3\nInput length of word:");
-            removeWordsByLetters(txt,getWordLength(),new Letter[] {new Letter('w'), new Letter('W') });
+            removeWordsByLetters(txt,getWordLength(),new Letter[] {new Letter('z'), new Letter('b'), new Letter('c'), new Letter('d'),
+            new Letter('f'),new Letter('g'),new Letter('h'),new Letter('j'),new Letter('k'),new Letter('l'),new Letter('m'), new Letter('n'),
+            new Letter('p'), new Letter('q'),new Letter('r'),new Letter('s'),new Letter('t'),new Letter('v'),new Letter('w'),new Letter('x')});
             foreach (Sentens s in task1)
             {
                 Console.WriteLine(s.Value);
@@ -50,30 +54,46 @@ namespace ParserWithList
             
             foreach(Sentens sentens in text.Sentenses){
                 List<Word> newWords = new List<Word>();
+                List<PunctuationSymbol> punctuation = new List<PunctuationSymbol>();
+                ieP = sentens.PunctuationSymbols.GetEnumerator();
+
                 foreach (Word wordIter in sentens.Words) {
                     
                     bool correct = true; 
                     ieS = wordIter.Symbols.GetEnumerator();
+                    ieP.MoveNext();
                     ieS.MoveNext();
                     firstSymbol=(Symbol)ieS.Current;
-                    if (wordIter.Symbols.Count != length && Letter.isLetter(firstSymbol)){
+                    if (Letter.isLetter(firstSymbol)){
                         foreach (Letter l in checkLetters) {
-                            if (l.Value == firstSymbol.Value) {
+                            if (l.Value == Letter.toLower(firstSymbol.Value)) {
                                 correct = false;
                                 break;
                             }
                         }
-                        if (correct) {
+                        if (wordIter.Symbols.Count != length || correct) {
                             newWords.Add(wordIter);
-                            
+                            punctuation.Add((PunctuationSymbol)ieP.Current);
                         }
                     }
 
                 }
+                
                 sentens.Words = newWords;
-
+                sentens.PunctuationSymbols = punctuation;
             }
             
+        }
+        public static void removeWBL(Text text, int length, Letter[] checkLetters) {
+            LinkedList<Sentens> sentenses = new LinkedList<Sentens>(text.Sentenses);
+            for (LinkedListNode<Sentens> sentens=sentenses.First;sentens.Next!=null;sentens=sentens.Next ) {
+                LinkedList<Word> words = new LinkedList<Word>(sentens.Words);
+                LinkedList<PunctuationSymbol> punctSymbols = sentens.PunctuationSymbols;
+
+
+
+            }
+
         }
         public static Sentens[] getSortedBySentensLength(Text txt)
         {

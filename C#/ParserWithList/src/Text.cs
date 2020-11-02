@@ -20,13 +20,12 @@ namespace ParserWithList {
 			Sentenses = new List<Sentens> ();
 			int position = 0;
 			int start = 0;
-			Regex reg = new Regex (@"\s+");
 			// Extract sentences from the string.
 			do {
 				position = txt.IndexOfAny (new char[] { '.', '!', '?' }, start);
 				if (position >= 0) {
 					string subStr=txt.Substring (start, position - start + 1).Trim ();
-					subStr=reg.Replace(subStr," ");
+					subStr=Regex.Replace(subStr, @"\s+", "/");
 					if(subStr!=" ")Sentenses.Add (new Sentens(subStr));
 					start = position + 1;
 				}

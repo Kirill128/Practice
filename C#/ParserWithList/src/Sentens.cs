@@ -20,11 +20,11 @@ namespace ParserWithList
 					if (playP)
 					{
 						PunctuationSymbol p = (PunctuationSymbol)ieP.Current;
-						if (PunctuationSymbol.IsPunctuationSymbol(p)) {
+						//if (PunctuationSymbol.IsPunctuationSymbol(p)) {
 							val.Append(p.Value );
-							if (ieP.MoveNext()) val.Append(((PunctuationSymbol)ieP.Current).Value);
-						}
-						else val.Append(p.Value);
+						//	if (ieP.MoveNext()) val.Append(((PunctuationSymbol)ieP.Current).Value);
+						//}
+					//	else val.Append(p.Value);
 					}
 				}
 				return val.ToString();
@@ -37,7 +37,7 @@ namespace ParserWithList
 			StringBuilder word = new StringBuilder("");
 			for (int i = 0; i < txt.Length; i++)
 			{
-				if (PunctuationSymbol.IsPunctuationSymbol(txt[i]) || txt[i] == ' ')
+				if (PunctuationSymbol.IsPunctuationSymbol(txt[i]) || txt[i] == '/')
 				{
 					PunctuationSymbols.Add(new PunctuationSymbol(txt[i]));
 					if (word.Length != 0) Words.Add(new Word(word.ToString()));
