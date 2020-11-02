@@ -3,6 +3,7 @@ namespace ParserWithList
 	class PunctuationSymbol:Symbol {
         private char val;
         private static char[] punctsSymb = new char[] { ',', ':', '!', '?', '-', '.', '\\', '_'};
+        public int PositionByWord{get;set;}
         public override char Value{
             get{return val;}
             set{
@@ -10,8 +11,9 @@ namespace ParserWithList
                 this.val=value;
             }
         }
-        public PunctuationSymbol(char s):base(s){
+        public PunctuationSymbol(char s,int wordsuntil):base(s){
             Value=s;
+            PositionByWord=wordsuntil;
         }
         public static bool IsPunctuationSymbol(char value){
             foreach (char s in punctsSymb) {

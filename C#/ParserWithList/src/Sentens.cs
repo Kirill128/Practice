@@ -37,9 +37,9 @@ namespace ParserWithList
 			StringBuilder word = new StringBuilder("");
 			for (int i = 0; i < txt.Length; i++)
 			{
-				if (PunctuationSymbol.IsPunctuationSymbol(txt[i]) || txt[i] == '/')
+				if (PunctuationSymbol.IsPunctuationSymbol(txt[i]))
 				{
-					PunctuationSymbols.Add(new PunctuationSymbol(txt[i]));
+					PunctuationSymbols.Add(new PunctuationSymbol(txt[i],Words.Count));
 					if (word.Length != 0) Words.Add(new Word(word.ToString()));
 					word.Remove(0, word.Length);
 				}
