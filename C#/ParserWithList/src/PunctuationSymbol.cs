@@ -15,6 +15,7 @@ namespace ParserWithList
             Value=s;
             PositionByWord=wordsuntil;
         }
+        
         public static bool IsPunctuationSymbol(char value){
             foreach (char s in punctsSymb) {
                 if (s==value) return true;

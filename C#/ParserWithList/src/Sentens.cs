@@ -15,17 +15,18 @@ namespace ParserWithList
 				StringBuilder val = new StringBuilder(40);
 				IEnumerator ieW = Words.GetEnumerator();
 				IEnumerator ieP = PunctuationSymbols.GetEnumerator();
-				for (bool playW = ieW.MoveNext(), playP = ieP.MoveNext(); playW || playP; playW = ieW.MoveNext(), playP = ieP.MoveNext()) {
-					if (playW) val.Append(((Word)ieW.Current).Value);
-					if (playP)
-					{
-						PunctuationSymbol p = (PunctuationSymbol)ieP.Current;
-						//if (PunctuationSymbol.IsPunctuationSymbol(p)) {
-							val.Append(p.Value );
-						//	if (ieP.MoveNext()) val.Append(((PunctuationSymbol)ieP.Current).Value);
-						//}
-					//	else val.Append(p.Value);
+				int wordCount=0;
+				for (bool playW = ieW.MoveNext(),playP = ieP.MoveNext(); playW ; playW = ieW.MoveNext()) {
+					if (playW) {
+						val.Append(((Word)ieW.Current).Value);
+						wordCount++;
 					}
+					while(playP && wordCount == ((PunctuationSymbol)ieP.Current).PositionByWord){
+						val.Append(((PunctuationSymbol)ieP.Current).Value);
+						playP=ieP.MoveNext();
+					}
+					val.Append('/');
+					
 				}
 				return val.ToString();
 			}
@@ -37,10 +38,10 @@ namespace ParserWithList
 			StringBuilder word = new StringBuilder("");
 			for (int i = 0; i < txt.Length; i++)
 			{
-				if (PunctuationSymbol.IsPunctuationSymbol(txt[i]))
+				if (PunctuationSymbol.IsPunctuationSymbol(txt[i]) || txt[i]=='/')
 				{
-					PunctuationSymbols.Add(new PunctuationSymbol(txt[i],Words.Count));
 					if (word.Length != 0) Words.Add(new Word(word.ToString()));
+					PunctuationSymbols.Add(new PunctuationSymbol(txt[i],Words.Count));
 					word.Remove(0, word.Length);
 				}
 				else
@@ -57,7 +58,7 @@ namespace ParserWithList
 				Words.Add(new Word(w.Value));
 			}
 			foreach (PunctuationSymbol p in punct) {
-				PunctuationSymbols.Add(new PunctuationSymbol(p.Value));
+				PunctuationSymbols.Add(new PunctuationSymbol(p.Value,p.PositionByWord));
 			}
 		}
 		 

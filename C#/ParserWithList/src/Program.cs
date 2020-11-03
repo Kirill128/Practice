@@ -10,10 +10,10 @@ namespace ParserWithList
     { //"I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"     /home/kirill/practice/c#/parser/data/text.txt
         static void Main(string[] args)
         {
-            Text txt = new Text(ReadFile("I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"));
+            Text txt = new Text(ReadFile("/home/kirill/Practice/C#/ParserWithList/data/Text.txt"));
             foreach (Sentens s in txt.Sentenses)
             {
-                Console.WriteLine(s.Value);
+               Console.WriteLine(s.Value);
             }
             Console.WriteLine();
 
@@ -45,6 +45,7 @@ namespace ParserWithList
             }
             //task 4
             
+            
         }
         public static void removeWordsByLetters(Text text,int length,Letter [] checkLetters){//Сгорело из-за реализации листов. 
             //при foreach и IEnumarator нельзя менять коллекцию(даже удалять)!!
@@ -56,9 +57,9 @@ namespace ParserWithList
                 List<Word> newWords = new List<Word>();
                 List<PunctuationSymbol> punctuation = new List<PunctuationSymbol>();
                 ieP = sentens.PunctuationSymbols.GetEnumerator();
-
+                int wordCounter=0;
                 foreach (Word wordIter in sentens.Words) {
-                    
+                    wordCounter++;
                     bool correct = true; 
                     ieS = wordIter.Symbols.GetEnumerator();
                     ieP.MoveNext();
@@ -73,7 +74,10 @@ namespace ParserWithList
                         }
                         if (wordIter.Symbols.Count != length || correct) {
                             newWords.Add(wordIter);
-                            punctuation.Add((PunctuationSymbol)ieP.Current);
+                            
+                            foreach(PunctuationSymbol p in sentens.PunctuationSymbols){
+                                if(p.PositionByWord>wordCounter)p.PositionByWord--;
+                            }
                         }
                     }
 
@@ -83,18 +87,44 @@ namespace ParserWithList
                 sentens.PunctuationSymbols = punctuation;
             }
             
-        }
+       }
+/*       
         public static void removeWBL(Text text, int length, Letter[] checkLetters) {
             LinkedList<Sentens> sentenses = new LinkedList<Sentens>(text.Sentenses);
             for (LinkedListNode<Sentens> sentens=sentenses.First;sentens.Next!=null;sentens=sentens.Next ) {
                 LinkedList<Word> words = new LinkedList<Word>(sentens.Words);
-                LinkedList<PunctuationSymbol> punctSymbols = sentens.PunctuationSymbols;
+                LinkedList<PunctuationSymbol> punctSymbols = new LinkedList<Word>(sentens.PunctuationSymbols);
 
+                LinkedListNode<PunctuationSymbol> punctSymbol =punctSymbols.First;
+                LinkedListNode<Word> word =words.First;
+                for(;word.Next!=null;word=word.Next){
+                    IEnumerator ieS=word.Value.Symbols.GetEnumerator();
+                    ieS.MoveNext();
+                    bool isSameLetter=false;
+                    for(int i=0;i<checkLetters.Length;i++){
+                        if(checkLetters[i].Value==((Symbol)ieS.Current).Value){
+                            isCorrectLetter=true;
+                            break;
+                        }
+                    }
+                    if(word.Value.Symbols.Count==length && isCorrectLetter){
+                        sentens.Remove(word);
 
+                    }
+                }
 
             }
+            text.Sentenses=new List<Sentens>(sentenses);
 
         }
+        public stataic LinkedList<T> addFromListToLinked<T> (List<T> list){
+            return null;
+        }
+        public stataic List<T> addFromListToLinked<T>(LinkedList<T> linked){
+            return null;
+        }
+        
+        */
         public static Sentens[] getSortedBySentensLength(Text txt)
         {
             Sentens[] sen = txt.Sentenses.ToArray();

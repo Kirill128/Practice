@@ -1,4 +1,4 @@
-There are so many books out there for programmers and not enough time to read them all.
+There are so many, books out there for programmers and not enough time to read them all.
 Wouldn’t it be nice if you had a curated list so you could make the most effective use your self-study time time?
 What you’ll find below is my personal list of top books for programmers.
 The first thing you’ll probably find is that this list is not one of the typical “books for programmers” lists you’ll find out there floating around on the internet—and that’s a good thing!
