@@ -57,7 +57,7 @@ namespace ParserWithList
             {
                 Console.WriteLine(s.Value);
             }
-           
+            
         }
 
 

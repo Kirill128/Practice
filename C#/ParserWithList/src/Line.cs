@@ -38,7 +38,7 @@ namespace ParserWithList.src
 			
 			for (LinkedListNode<Word> firstIter = words.First;firstIter.Next!=null;firstIter=firstIter.Next) {
 				for (LinkedListNode<Word> secondIter = firstIter; secondIter.Next != null; secondIter = secondIter.Next) {
-					if (firstIter) {
+					if (firstIter.Value.Value<secondIter.Value.Value) {
 						LinkedListNode<Word> buf = firstIter;
 						firstIter.Value = secondIter.Value;
 						secondIter.Value = buf.Value;

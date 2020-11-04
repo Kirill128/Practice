@@ -1,0 +1,11 @@
+/home/kirill/Practice/C#/Attestation/obj/Debug/netcoreapp3.1/Attestation.csprojAssemblyReference.cache
+/home/kirill/Practice/C#/Attestation/obj/Debug/netcoreapp3.1/Attestation.AssemblyInfoInputs.cache
+/home/kirill/Practice/C#/Attestation/obj/Debug/netcoreapp3.1/Attestation.AssemblyInfo.cs
+/home/kirill/Practice/C#/Attestation/bin/Debug/netcoreapp3.1/Attestation
+/home/kirill/Practice/C#/Attestation/bin/Debug/netcoreapp3.1/Attestation.deps.json
+/home/kirill/Practice/C#/Attestation/bin/Debug/netcoreapp3.1/Attestation.runtimeconfig.json
+/home/kirill/Practice/C#/Attestation/bin/Debug/netcoreapp3.1/Attestation.runtimeconfig.dev.json
+/home/kirill/Practice/C#/Attestation/bin/Debug/netcoreapp3.1/Attestation.dll
+/home/kirill/Practice/C#/Attestation/bin/Debug/netcoreapp3.1/Attestation.pdb
+/home/kirill/Practice/C#/Attestation/obj/Debug/netcoreapp3.1/Attestation.dll
+/home/kirill/Practice/C#/Attestation/obj/Debug/netcoreapp3.1/Attestation.pdb
