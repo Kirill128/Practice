@@ -38,17 +38,23 @@ namespace ParserWithList
 			StringBuilder word = new StringBuilder("");
 			for (int i = 0; i < txt.Length; i++)
 			{
-				if (PunctuationSymbol.IsPunctuationSymbol(txt[i]) || txt[i]=='/')
-				{
-					if (word.Length != 0) Words.Add(new Word(word.ToString()));
-					PunctuationSymbols.Add(new PunctuationSymbol(txt[i],Words.Count));
-					word.Remove(0, word.Length);
-				}
-				else
-				{
-					word.Append(txt[i]);
-				}
+					if (PunctuationSymbol.IsPunctuationSymbol(txt[i]) || txt[i] == '/')
+					{
+						if (word.Length != 0) Words.Add(new Word(word.ToString()));
+						PunctuationSymbols.Add(new PunctuationSymbol(txt[i], Words.Count));
+						word.Remove(0, word.Length);
+					}
+					else
+					{
+						word.Append(txt[i]);
+					}
 			}
+			List<PunctuationSymbol> punctSymb = new List<PunctuationSymbol>();
+			foreach (PunctuationSymbol p in PunctuationSymbols) {
+				if (p.Value != '\0')
+					punctSymb.Add(p);
+			}
+			PunctuationSymbols = punctSymb;
 
 		}
 		public Sentens(List<Word> words,List<PunctuationSymbol> punct) {
