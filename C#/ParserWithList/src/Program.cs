@@ -2,14 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace ParserWithList
 {
     class Program
-    { //"I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"     /home/kirill/practice/c#/parser/data/text.txt
+    { //"I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"     
+        private static string filePath="/home/kirill/Practice/C#/ParserWithList/data/Text.txt";
         static void Main(string[] args)
         {
-            Text txt = new Text(ReadFile("I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"));
+            /*
+            Text txt = new Text(ReadFile(filePath));
             foreach (Sentens s in txt.Sentenses)
             {
                 Console.WriteLine(s.Value);
@@ -57,10 +60,20 @@ namespace ParserWithList
             {
                 Console.WriteLine(s.Value);
             }
-            
+            */
+            // part 2 task 1
+            Console.WriteLine("Input num of max lines in page:");
+            Book book=new Book(filePath,getINT());
+            foreach(Page p in book.Pages){
+                foreach(Line l in p.Lines){
+                    foreach(Word w in l.Words){
+                        Console.WriteLine(w.Value);
+                    }
+                }
+            }
         }
 
-
+        
         public static Sentens replaceWordInSentens(Sentens sentens,int wordLength,string substring) {
             int wordCounter = -1;
             List<int> wordCountArray = new List<int>();

@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
-namespace ParserWithList.src
+namespace ParserWithList
 {
     class Page{
         public int NumOfPage{get;set;}
-        Line[] Lines {get;set;}
+        public Line[] Lines {get;set;}
         public Page(Line[] lines){
             Lines = lines;
         }

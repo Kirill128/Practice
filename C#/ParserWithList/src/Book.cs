@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
-namespace ParserWithList.src
+namespace ParserWithList
 {
     class Book{
         public string FilePath{get;set;}
@@ -19,9 +20,9 @@ namespace ParserWithList.src
             int lineCount=0;
             foreach(Line line in allLines){
                 lineCount++;
-                linesForOnePage.Add(line);
+                linesForOnePage[lineCount-1]=line;
                 if(lineCount==maxLinesInPage){
-                    pages.Add(new Page(linesForOnePage));
+                    pages.AddLast(new Page(linesForOnePage));
                     lineCount=0;
                     linesForOnePage=new Line[maxLinesInPage];
                 }
@@ -31,14 +32,13 @@ namespace ParserWithList.src
         public static LinkedList<Line> readFileByLines(string filePath){
             LinkedList<Line> allLines=new LinkedList<Line>();
             try{
-                StreamReader file=new StreamReader(filePath);
-                string l;
-                while((l = file.ReadLine())!=null){
-                    allLines.Add(new Line(l));
+                StreamReader file=new StreamReader(filePath);                
+                for(string l = file.ReadLine();l!=null;l = file.ReadLine()){
+                    allLines.AddLast(new Line(l));
                 } 
             }
             catch(Exception e){
-                Console.WriteLine(e.ShowMessage);
+                Console.WriteLine(e.Message);
             }
             return allLines;
         }
