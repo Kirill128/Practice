@@ -7,11 +7,11 @@ using System.Text;
 namespace ParserWithList
 {
     class Program
-    { //"I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"     
-        private static string filePath="/home/kirill/Practice/C#/ParserWithList/data/Text.txt";
+    { //"I:\\Practice\\C#\\ParserWithList\\data\\Text.txt"      "/home/kirill/Practice/C#/ParserWithList/data/Text.txt"
+        private static string filePath= "I:\\Practice\\C#\\ParserWithList\\data\\Text.txt";
         static void Main(string[] args)
         {
-            /*
+            
             Text txt = new Text(ReadFile(filePath));
             foreach (Sentens s in txt.Sentenses)
             {
@@ -60,17 +60,25 @@ namespace ParserWithList
             {
                 Console.WriteLine(s.Value);
             }
-            */
+            
             // part 2 task 1
-            Console.WriteLine("Input num of max lines in page:");
+            Console.WriteLine("Part 2 \nInput num of max lines in page:");
             Book book=new Book(filePath,getINT());
-            foreach(Page p in book.Pages){
-                foreach(Line l in p.Lines){
-                    foreach(Word w in l.Words){
-                        Console.WriteLine(w.Value);
+            foreach (Page p in book.Pages) {
+                Console.WriteLine("///////////////////////////////////////////////////////////////////////");
+                Console.WriteLine("Page " + p.NumOfPage);
+                Console.WriteLine("///////////////////////////////////////////////////////////////////////");
+                LinkedList<WordBox> b = Line.sortWordsByAlphabet(p.getUniqueWordsBoxes());
+                foreach (WordBox w in b) {
+                    Console.Write(w.Word.Value + " " + w.Count + ": ");
+                    foreach (int i in w.MeetInLines)
+                    {
+                        Console.Write(i + " ");
                     }
+                    Console.WriteLine();
                 }
             }
+            
         }
 
         

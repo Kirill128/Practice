@@ -14,27 +14,33 @@ namespace ParserWithList
             maxLinesInPage=linesInPage;
             Pages=divideToPages(readFileByLines(filePath),maxLinesInPage);
         }
+
+        
         public static LinkedList<Page> divideToPages(LinkedList<Line> allLines,int maxLinesInPage){
-            LinkedList<Page> pages=new LinkedList<Page>();
-            Line[] linesForOnePage=new Line[maxLinesInPage];
-            int lineCount=0;
-            foreach(Line line in allLines){
-                lineCount++;
-                linesForOnePage[lineCount-1]=line;
-                if(lineCount==maxLinesInPage){
-                    pages.AddLast(new Page(linesForOnePage));
-                    lineCount=0;
-                    linesForOnePage=new Line[maxLinesInPage];
+            LinkedList<Page> pages = new LinkedList<Page>();
+            LinkedList<Line> linesForOnePage;
+            LinkedListNode<Line> line = allLines.First;
+            int maxPages = (allLines.Count / maxLinesInPage) + (allLines.Count % 2);
+            for (int pageCount=0;pageCount<maxPages;pageCount++)
+            {
+                linesForOnePage = new LinkedList<Line>();
+                for (int lineCount = 0;lineCount<maxLinesInPage && line!=null;lineCount++) {
+                    linesForOnePage.AddLast( line.Value);
+                    line = line.Next;
                 }
+                pages.AddLast(new Page(linesForOnePage,pageCount+1));
             }
+
             return pages;
         }
         public static LinkedList<Line> readFileByLines(string filePath){
             LinkedList<Line> allLines=new LinkedList<Line>();
             try{
-                StreamReader file=new StreamReader(filePath);                
+                StreamReader file=new StreamReader(filePath);
+                int lineNum = 0;
                 for(string l = file.ReadLine();l!=null;l = file.ReadLine()){
-                    allLines.AddLast(new Line(l));
+                    lineNum++;
+                    allLines.AddLast(new Line(l,lineNum));
                 } 
             }
             catch(Exception e){
