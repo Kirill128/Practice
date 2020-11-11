@@ -10,7 +10,7 @@ namespace lab9
     {
         static void Main(string[] args)
         {
-			string filePath = "/home/kirill/Practice/C#/lab9/lab9/data/TextFile1.txt";
+			string filePath = "I:\\Practice\\C#\\lab9\\Lab9\\data\\TextFile1.txt";
 			bool doWork = true;
 			int taskNum;
 			string inputedString = ReadFile(filePath);
@@ -92,32 +92,50 @@ namespace lab9
 						break;
 					case 10:
 					{
-						string pattern = @"(([0-1][0-9])|(2[0-4]):(([0-5][0-9])|(60)):(([0-5][0-9])|(60))";
+						string pattern = @"(([0-1][0-9])|(2[0-4])):(([0-5][0-9])|(60)):(([0-5][0-9])|(60))";
 						
 						MatchCollection matches = Regex.Matches(inputedString,pattern);
-						foreach (Match match in matches)
+							foreach (Match match in matches)
+								Console.WriteLine("|"+match.Value+"|");
+							int wordCount = 0;
+							foreach (Match match in matches)
 						{
-							string val=match.Value;
-							int index = match.Index;
-							if (Regex.IsMatch(val, @"(([0-1][0-9]))|(2[0-4]):60:(([3-5][0-9])|(60))"))
+								
+							string time=match.Value;
+							int index = match.Index-wordCount*3;
+							
+							if (Regex.IsMatch(time, @"(([0-1][0-9])|(2[0-4])):60:(([3-5][0-9])|(60))"))
 							{
-								int hours = Convert.ToInt32(val[0]+val[1]);
-								hours++;
-								String.Replace(inputedString,hours+":00:00",9,match.Index);
+									Console.WriteLine("Reg1");
+									Regex reg1 = new Regex(@"(([0-1][0-9])|(2[0-4])):60:(([3-5][0-9])|(60))");
+									int hours = Convert.ToInt32(String.Concat(time[0],time[1]));
+									
+								    hours++;
+									inputedString = reg1.Replace(inputedString,String.Concat(hours,":00"),1,index);
+									wordCount++;
 							}
 							else
 							{
-								if (Regex.IsMatch(val,@"(([0-1][0-9])|(2[0-4])):([0-5][0-9]):([0-2][0-9])"))
+								if (Regex.IsMatch(time,@"(([0-1][0-9])|(2[0-4])):([0-5][0-9]):([0-2][0-9])"))
 								{
-									String.Replace(inputedString,val[0]+val[1]+":" +val[3]+val[4]+":00",9,match.Index);
+										Console.WriteLine("Reg2");
+										Regex reg2 = new Regex(@"(([0-1][0-9])|(2[0-4])):([0-5][0-9]):([0-2][0-9])");
+										inputedString=reg2.Replace(inputedString,String.Concat(time[0],time[1],time[2],time[3],time[4]),1,index);
+										wordCount++;
 								}
 								else
 								{
-									String.Replace(inputedString,val[0]+val[1]+":"+":00",9,match.Index);
+										Console.WriteLine("Reg3");
+										int minutes = Convert.ToInt32(String.Concat(time[3],time[4]));
+										minutes++;
+										Regex reg3 = new Regex(@"(([0-1][0-9])|(2[0-4])):([0-5][0-9]):([3-5][0-9])");
+										inputedString = reg3.Replace(inputedString,String.Concat(time[0],time[1],time[2],(minutes>9)?minutes.ToString():String.Concat("0",minutes)),1,index);
+										wordCount++;
 								}	
 							}
 							
 						}
+							Console.WriteLine(inputedString);
 					}
 						break;
 					case 11:
