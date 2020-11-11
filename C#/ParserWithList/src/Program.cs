@@ -11,7 +11,7 @@ namespace ParserWithList
         private static string filePath="/home/kirill/Practice/C#/ParserWithList/data/Text.txt";
         static void Main(string[] args)
         {
-            
+            /*
             Text txt = new Text(ReadFile(filePath));
             foreach (Sentens s in txt.Sentenses)
             {
@@ -60,7 +60,7 @@ namespace ParserWithList
             {
                 Console.WriteLine(s.Value);
             }
-            
+            */
             // part 2 task 1
             Console.WriteLine("Part 2 \nInput num of max lines in page:");
             Book book=new Book(filePath,getINT());

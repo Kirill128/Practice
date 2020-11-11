@@ -36,7 +36,7 @@ namespace lab9.src
                 for (int i=0;i<words.Length;i++) {
                     bool existInWordBox = false;                
                     foreach (WordBox wordBox in wordBoxes) {
-                        if (Regex.IsMatch(wordBox.Word, words[i], RegexOptions.IgnoreCase)) {
+                        if (words[i].Equals(wordBox.Word)) {
                             existInWordBox = true;
                             wordBox.Count++;
 
@@ -59,6 +59,23 @@ namespace lab9.src
                 }
             }
             return wordBoxes;
+        }
+        public static LinkedList<WordBox> sortWordsByAlphabet(LinkedList<WordBox> words)
+        {
+
+            for (LinkedListNode<WordBox> firstIter = words.First; firstIter.Next != null; firstIter = firstIter.Next)
+            {
+                for (LinkedListNode<WordBox> secondIter = firstIter; secondIter.Next != null; secondIter = secondIter.Next)
+                {
+                    if (String.Compare(firstIter.Value.Word, secondIter.Value.Word) > 0)
+                    {
+                        WordBox buf = firstIter.Value;
+                        firstIter.Value = secondIter.Value;
+                        secondIter.Value = buf;
+                    }
+                }
+            }
+            return words;
         }
     }
 }

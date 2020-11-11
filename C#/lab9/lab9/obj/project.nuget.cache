@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "S+0fRM6N+uotRcdKiKHNlstfj3dEmu6bUOJ17xtwOYYFkMFTFZiVdloHzwcafLgVRX0NqTmipXd0kqub9Ani6Q==",
+  "dgSpecHash": "lccyPuoMccYD/vTcpilcTAuXco/NoSHaSLUSIemxYcCxhMbK0VxUW8E+LSXNgVZPLuSd0BOsEXektwZaITEbjg==",
   "success": true,
-  "projectFilePath": "I:\\Practice\\C#\\lab9\\Lab9\\lab9.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/kirill/Practice/C#/lab9/lab9/lab9.csproj",
+  "expectedPackageFiles": [
+    "/home/kirill/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.8/microsoft.aspnetcore.app.ref.3.1.8.nupkg.sha512"
+  ],
   "logs": []
 }

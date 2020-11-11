@@ -10,7 +10,7 @@ namespace lab9
     {
         static void Main(string[] args)
         {
-			string filePath = "I:\\Practice\\C#\\lab9\\lab9\\data\\TextFile1.txt";
+			string filePath = "/home/kirill/Practice/C#/lab9/lab9/data/TextFile1.txt";
 			bool doWork = true;
 			int taskNum;
 			string inputedString = ReadFile(filePath);
@@ -75,25 +75,55 @@ namespace lab9
 						break;
 					case 8:
 						{
-							LinkedList<string> numbers = TextMethodes.FindByPattern(inputedString, @"(10|20|[0-2][1-9]|3[0-1])\.(0[1-9]|1[0-2])\.((19[0-9][0-9])|(20([0-1][0-9])|(20)))");
+							LinkedList<string> numbers = TextMethodes.FindByPattern(inputedString, @"(10|20|[0-2][1-9]|3[0-1])\.(0[1-9]|1[0-2])\.2020");
 							foreach (string num in numbers)
 								Console.WriteLine(num);
 						}
 						break;
 
 					case 9:
+					{
+						LinkedList<string> adresses = TextMethodes.FindByPattern(inputedString, @"\w+(\.by|\.com)");
+						foreach (string str in adresses)
 						{
-							
+							Console.WriteLine(str);
 						}
+					}
 						break;
 					case 10:
+					{
+						string pattern = @"(([0-1][0-9])|(2[0-4]):(([0-5][0-9])|(60)):(([0-5][0-9])|(60))";
+						
+						MatchCollection matches = Regex.Matches(inputedString,pattern);
+						foreach (Match match in matches)
 						{
-
+							string val=match.Value;
+							int index = match.Index;
+							if (Regex.IsMatch(val, @"(([0-1][0-9]))|(2[0-4]):60:(([3-5][0-9])|(60))"))
+							{
+								int hours = Convert.ToInt32(val[0]+val[1]);
+								hours++;
+								String.Replace(inputedString,hours+":00:00",9,match.Index);
+							}
+							else
+							{
+								if (Regex.IsMatch(val,@"(([0-1][0-9])|(2[0-4])):([0-5][0-9]):([0-2][0-9])"))
+								{
+									String.Replace(inputedString,val[0]+val[1]+":" +val[3]+val[4]+":00",9,match.Index);
+								}
+								else
+								{
+									String.Replace(inputedString,val[0]+val[1]+":"+":00",9,match.Index);
+								}	
+							}
+							
 						}
+					}
 						break;
 					case 11:
 						{
-							LinkedList<WordBox> wordsbox = TextMethodes.GetUniqueWordBoxes(ReadFileByLines(filePath));
+							LinkedList<WordBox> wordsbox = TextMethodes.sortWordsByAlphabet(TextMethodes.GetUniqueWordBoxes(ReadFileByLines(filePath)));
+							
 							foreach (WordBox w in wordsbox) {
 								Console.Write(w.Word +" "+w.Count+": ");
 								foreach (int meet in w.MeetInLines) {
