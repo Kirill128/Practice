@@ -51,9 +51,9 @@
             // InputedText
             // 
             this.InputedText.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.InputedText.Location = new System.Drawing.Point(50, 27);
+            this.InputedText.Location = new System.Drawing.Point(43, 27);
             this.InputedText.Name = "InputedText";
-            this.InputedText.Size = new System.Drawing.Size(1108, 655);
+            this.InputedText.Size = new System.Drawing.Size(1115, 655);
             this.InputedText.TabIndex = 3;
             this.InputedText.Text = "";
             // 
@@ -147,7 +147,7 @@
             this.FileManager.Image = ((System.Drawing.Image)(resources.GetObject("FileManager.Image")));
             this.FileManager.Location = new System.Drawing.Point(0, 27);
             this.FileManager.Name = "FileManager";
-            this.FileManager.Size = new System.Drawing.Size(44, 58);
+            this.FileManager.Size = new System.Drawing.Size(43, 56);
             this.FileManager.TabIndex = 5;
             this.FileManager.UseVisualStyleBackColor = true;
             // 
@@ -159,7 +159,6 @@
             this.ShowInstruments.Size = new System.Drawing.Size(80, 24);
             this.ShowInstruments.TabIndex = 6;
             this.ShowInstruments.UseVisualStyleBackColor = true;
-            this.ShowInstruments.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
