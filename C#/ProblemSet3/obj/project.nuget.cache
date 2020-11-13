@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1YNSXY0bOjXGhUSCchA8u++TIkY31BkSWtIQSHgOIEkkVJxnA8FAG6N7XvFT2cAvjNI1O3ajZdFTCpoh713Unw==",
+  "dgSpecHash": "aVUjrhNdMhHNqsVOVjqVG17LEAB2F+pH9Em/oK2Sd2yLaWYcTZauiU8FwdtBtwASnLMM200DApVLuha5u7ktBg==",
   "success": true,
-  "projectFilePath": "/home/kirill/Practice/C#/ProblemSet3/ProblemSet3.csproj",
-  "expectedPackageFiles": [
-    "/home/kirill/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.8/microsoft.aspnetcore.app.ref.3.1.8.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Laptop\\source\\repos\\Practice\\C#\\ProblemSet3\\ProblemSet3.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
