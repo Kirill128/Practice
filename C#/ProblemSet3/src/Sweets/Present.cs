@@ -6,8 +6,10 @@ namespace ProblemSet3.src.Sweets
 {
     class Present
     {
+
+
         public LinkedList<Sweet> Sweets { get; set; }
-        public double Weight { 
+        public double Weight {
             get {
                 double w = 0;
                 foreach (Sweet sw in Sweets) {
@@ -16,26 +18,10 @@ namespace ProblemSet3.src.Sweets
                 return w;
             }
         }
-        public double SugarContent {
-            get {
-                double sugar = 0;
-                foreach (Sweet sw in Sweets) {
-                    sugar = sw.SugarContent;
-                }
-                return sugar;
-            }
+        public Present(LinkedList<Sweet> sweets) {
+            this.Sweets = sweets;
         }
-        public double EnergyValue
-        {
-            get
-            {
-                double energy = 0;
-                foreach (Sweet sw in Sweets)
-                {
-                    energy = sw.EnegryValue;
-                }
-                return energy;
-            }
-        }
+        
     }
+
 }

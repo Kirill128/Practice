@@ -1,0 +1,13 @@
+I:\Practice\C#\ProblemSet3\bin\Debug\netcoreapp3.1\ProblemSet3.exe
+I:\Practice\C#\ProblemSet3\bin\Debug\netcoreapp3.1\ProblemSet3.deps.json
+I:\Practice\C#\ProblemSet3\bin\Debug\netcoreapp3.1\ProblemSet3.runtimeconfig.json
+I:\Practice\C#\ProblemSet3\bin\Debug\netcoreapp3.1\ProblemSet3.runtimeconfig.dev.json
+I:\Practice\C#\ProblemSet3\bin\Debug\netcoreapp3.1\ProblemSet3.dll
+I:\Practice\C#\ProblemSet3\bin\Debug\netcoreapp3.1\ProblemSet3.pdb
+I:\Practice\C#\ProblemSet3\obj\Debug\netcoreapp3.1\ProblemSet3.csprojAssemblyReference.cache
+I:\Practice\C#\ProblemSet3\obj\Debug\netcoreapp3.1\ProblemSet3.AssemblyInfoInputs.cache
+I:\Practice\C#\ProblemSet3\obj\Debug\netcoreapp3.1\ProblemSet3.AssemblyInfo.cs
+I:\Practice\C#\ProblemSet3\obj\Debug\netcoreapp3.1\ProblemSet3.csproj.CoreCompileInputs.cache
+I:\Practice\C#\ProblemSet3\obj\Debug\netcoreapp3.1\ProblemSet3.dll
+I:\Practice\C#\ProblemSet3\obj\Debug\netcoreapp3.1\ProblemSet3.pdb
+I:\Practice\C#\ProblemSet3\obj\Debug\netcoreapp3.1\ProblemSet3.genruntimeconfig.cache
