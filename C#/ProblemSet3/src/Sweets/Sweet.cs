@@ -33,12 +33,12 @@ namespace ProblemSet3.src.Sweets
 
         public override string ToString()
         {
-            return "Name:" + Name + " " +
-                  "Weight:" + Weight + " " +
-                  "ProteinContent:" + String.Format("{0:f2}",ProteinContent) + " " +
-                  "FatsContent:" + String.Format("{0:f2}", FatsContent) + " " +
-                  "Calories:" + String.Format("{0:f2}", CaloriesContent) + " " +
-                  "Carbohydrates:" + String.Format("{0:f2}", CarbohydratesContent) ;
+            return "Name:" + String.Format("{0,-35}", Name) + " " +
+                  "Weight:" + String.Format("{0,-4}", Weight) + " " +
+                  "ProteinContent:" + String.Format("{0,-20}",String.Format("{0:f2}",ProteinContent)) + " " +
+                  "FatsContent:" + String.Format("{0,-30}", String.Format("{0:f2}", FatsContent)) + " " +
+                  "Calories:" + String.Format("{0,-30}", String.Format("{0:f2}", CaloriesContent)) + " " +
+                  "Carbohydrates:" + String.Format("{0,-30}", String.Format("{0:f2}", CarbohydratesContent)) ;
         }
         public string allStandart() { 
             return "ProteinContent:" + String.Format("{0:f2}", proteinsIn100) + " " +

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "SZYFpcehuiSXANnIREMWGfcT1JadQKzGNSnN2jMTqxUgwg7MaoZcr2M5nEhOyph2hHRwsKeg8td/I0F/XX6AaA==",
+  "success": true,
+  "projectFilePath": "I:\\Practice\\C#\\Lab4\\Lab4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Кирилл\\.nuget\\packages\\materialdesigncolors\\1.2.7\\materialdesigncolors.1.2.7.nupkg.sha512",
+    "C:\\Users\\Кирилл\\.nuget\\packages\\materialdesignthemes\\3.2.0\\materialdesignthemes.3.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using ProblemSet3.src.Sweets;
+
 namespace ProblemSet3
 {
     class Program
@@ -11,11 +12,29 @@ namespace ProblemSet3
         {
             string filePath= "I:\\Practice\\C#\\ProblemSet3\\database\\Sweets.txt";
             LinkedList<Sweet> allSw = getAllSweets(filePath);
-            Present present = randomPresent(allSw);
-            foreach (Sweet sw in present.Sweets)
+            
+            Present[] presents = new Present[2];
+            for (int i = 0; i < presents.Length; i++)
             {
-                Console.WriteLine(sw.ToString());
+                presents[i] = randomPresent(allSw);
+                Console.WriteLine($"Weight of present {i}: {presents[i].Weight}");
+                foreach (Sweet sw in presents[i].Sweets)Console.WriteLine(sw.ToString());
+                Console.WriteLine();
             }
+            Console.WriteLine("//////////////");
+            for (int i = 0; i < presents.Length; i++)
+            {
+                presents[i].SortComparator((Sweet a,Sweet b)=> a.Weight>b.Weight);
+                foreach (Sweet sw in presents[i].Sweets) Console.WriteLine(sw.ToString());
+                Console.WriteLine();
+            }
+            Console.WriteLine("//////////////");
+            for (int i = 0; i < presents.Length; i++)
+            {
+                foreach (Sweet sw in presents[i].findSomeSweets((Sweet a)=> a.CaloriesContent<100 )) Console.WriteLine(sw.ToString());
+                Console.WriteLine();
+            }
+
         }
         public static LinkedList<Sweet> getAllSweets(string filePath) {
             LinkedList<Sweet> allSweets = new LinkedList<Sweet>();
