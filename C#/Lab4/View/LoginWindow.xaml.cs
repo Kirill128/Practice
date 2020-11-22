@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab4.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,13 +22,16 @@ namespace Lab4
     public partial class LoginWindow : Window
     {
         LoginValidator valid;
+        CommandLogin commandLogin;
         public LoginWindow()
         {
             InitializeComponent();
             valid = new LoginValidator();
-            this.DataContext = valid;
-
+            commandLogin = new CommandLogin(valid,PostDataAction);
+            DataContext = valid;
         }
-
+        public void PostDataAction() { 
+            
+        }
     }
 }

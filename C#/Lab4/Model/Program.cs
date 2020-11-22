@@ -5,12 +5,14 @@ namespace Cards
 {
     class Program
     {
+        /*
         static void Main(string[] args) {
             List<Card> cards = inputCards();
             foreach (Card c in cards) {
                 Console.WriteLine(c.FirmName + c.Num + "\n");
             }
         }
+        */
         public static List<Card> inputCards()
         {
             List<Card> allcards = new List<Card>();

@@ -10,5 +10,6 @@ namespace Lab4
         public ATMVM() { 
         
         }
+        
     }
 }

@@ -18,8 +18,8 @@ I:\Practice\C#\Lab4\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
 I:\Practice\C#\Lab4\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
 I:\Practice\C#\Lab4\obj\Debug\netcoreapp3.1\App.baml
 I:\Practice\C#\Lab4\obj\Debug\netcoreapp3.1\Lab4.csproj.CopyComplete
-I:\Practice\C#\Lab4\obj\Debug\netcoreapp3.1\LoginWindow.g.cs
-I:\Practice\C#\Lab4\obj\Debug\netcoreapp3.1\UserAccount.g.cs
-I:\Practice\C#\Lab4\obj\Debug\netcoreapp3.1\LoginWindow.baml
-I:\Practice\C#\Lab4\obj\Debug\netcoreapp3.1\UserAccount.baml
 I:\Practice\C#\Lab4\obj\Debug\netcoreapp3.1\Lab4.csprojAssemblyReference.cache
+I:\Practice\C#\Lab4\obj\Debug\netcoreapp3.1\View\LoginWindow.g.cs
+I:\Practice\C#\Lab4\obj\Debug\netcoreapp3.1\View\UserAccount.g.cs
+I:\Practice\C#\Lab4\obj\Debug\netcoreapp3.1\View\LoginWindow.baml
+I:\Practice\C#\Lab4\obj\Debug\netcoreapp3.1\View\UserAccount.baml

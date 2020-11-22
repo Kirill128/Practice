@@ -11,7 +11,7 @@ namespace Lab4
         public string Login { get; set; }
         public string Password { get; set; }
 
-        public string Error => throw new NotImplementedException();
+        public string Error { get; private set; }
 
         public string this[string columnName] {
             get {
@@ -29,6 +29,7 @@ namespace Lab4
                         }
                         break;
                 }
+                Error = error;
                 return error;
             }
         }
