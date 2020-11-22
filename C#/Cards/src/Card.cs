@@ -8,7 +8,11 @@ namespace Cards
 {
     public class Card
     {
+       
         public string Num { private set; get; }
+        public string Password { private set; get; }
+        public bool Blocked { set; get; }
+        public int MoneyRubels { set; get; }
         public bool IsLegal { private set; get; }
         public string FirmName { private set; get; }
         public string FirmRule { private set; get; }
@@ -18,10 +22,12 @@ namespace Cards
             set{ firmsData = value; }
             get{  return firmsData; }
         }
-        public Card(string num)
+        public Card(string num,string passw,int moneyrubels)
         {
-            if(FirmsData==null)FirmsData= getFirms("/home/kirill/Practice/C#/Cards/firmsdata/firmsrules.txt");
+            if(FirmsData==null)FirmsData = getFirms("/home/kirill/Practice/C#/Cards/firmsdata/firmsrules.txt");
             this.Num = num;
+            this.Password = passw;
+            this.MoneyRubels = moneyrubels;
             this.IsLegal = checkLegit(num);
             LinkedListNode<string[]> firm = FirmsData.First;
             while(firm!=null){
