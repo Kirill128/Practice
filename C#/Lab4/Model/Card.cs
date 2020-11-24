@@ -3,25 +3,53 @@ using System.Collections.Generic;
 using System.Runtime.Remoting;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
-namespace Cards
+namespace Lab4.Model
 {
-    public class Card
+    public class Card: INotifyPropertyChanged
     {
+        public bool blocked;
+        public int moneyRubels; 
         public string Num { private set; get; }
+        public string Password { private set; get; }
+        public bool Blocked { 
+            set {
+                blocked = value;
+                OnPropertyChanged("Blocked");
+            }
+            get { return blocked; } }
+        public int MoneyRubels {
+            set
+            {
+                if (value >= 0)
+                {
+                    moneyRubels = value;
+                    OnPropertyChanged("MoneyRubels");
+                }
+            }
+            get { return moneyRubels; }
+        }
         public bool IsLegal { private set; get; }
         public string FirmName { private set; get; }
         public string FirmRule { private set; get; }
 
         private static LinkedList<string[]>  firmsData;
-        private LinkedList<string[]> FirmsData {
+
+        private static LinkedList<string[]> FirmsData {
             set{ firmsData = value; }
             get{  return firmsData; }
         }
-        public Card(string num)
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public Card(string num,string passw,int moneyrubels)
         {
-            if(FirmsData==null)FirmsData= getFirms("/home/kirill/Practice/C#/Cards/firmsdata/firmsrules.txt");
+            if(FirmsData==null)FirmsData = getFirms("/home/kirill/Practice/C#/Cards/firmsdata/firmsrules.txt");
             this.Num = num;
+            this.Password = passw;
+            this.MoneyRubels = moneyrubels;
             this.IsLegal = checkLegit(num);
             LinkedListNode<string[]> firm = FirmsData.First;
             while(firm!=null){
@@ -66,6 +94,10 @@ namespace Cards
                 sum += buf % 10;
             }
             return sum % 10 == 0;
+        }
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<Window x:Class="Lab4.LoginWindow"
+﻿<Window x:Class="Lab4.View.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -16,7 +16,7 @@
                 <TextBlock  Text="ATM" HorizontalAlignment="Center"  FontSize="35" FontWeight="Black"/>
                 <TextBox  materialDesign:HintAssist.Hint="Input Card Number"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Path=Login,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" />
                 <TextBox  materialDesign:HintAssist.Hint="Input Card Password" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Path=Password,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" />
-                <Button x:Name="ButtonInput" Content="Input" Command="{Binding Path=CommandLogin}" Margin="0 25" />
+                <Button x:Name="ButtonInput" Content="Input" Click="ButtonInput_Click" Margin="0 25" />
             </StackPanel>
         </Border>
     </Grid>

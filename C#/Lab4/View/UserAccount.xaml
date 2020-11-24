@@ -1,4 +1,4 @@
-﻿<Window x:Class="Lab4.UserAccount"
+﻿<Window x:Class="Lab4.View.UserAccount"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,14 +6,63 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Lab4"
         mc:Ignorable="d"
-        Title="Account" Height="450" Width="800">
+        Title="Account" MinHeight="350" MinWidth="500" Height="300" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         
+        <TextBlock x:Name="CriticalInfoText" Grid.Row="0" Text="Account Data"/>
         
-        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                
+                <Button Grid.Row="0" Content="Main" VerticalAlignment="Top" BorderBrush="Transparent"/>
+                
+            </StackPanel>
+
+            <Border Grid.Column="1" Background="#FF005178">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Text="Money on Account" Foreground="White" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="sd" FontSize="20"  FontWeight="Black" Margin="20" Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White"/>
+                        <TextBox x:Name="GetMoneyTextBox" Grid.Row="1" Grid.ColumnSpan="2" Background="White" Margin="15 25 15 0"  materialDesign:HintAssist.Hint="Input how much to get" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Content="Get money" Click="ButtonGetMoney_Click"/>
+                        
+                    </Grid>
+
+                    <Button Grid.Column="1" Grid.Row="1" FontSize="18" Content="EXIT" HorizontalAlignment="Right" />
+
+                </Grid>
+            </Border>
+
+            
+            
+        </Grid>
+
     </Grid>
 </Window>

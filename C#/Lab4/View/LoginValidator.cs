@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Lab4
+namespace Lab4.View
 {
     class LoginValidator: IDataErrorInfo
     {
