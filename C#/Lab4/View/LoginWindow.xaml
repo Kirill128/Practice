@@ -8,15 +8,16 @@
         mc:Ignorable="d"
         Title="Login" MinHeight="400" MinWidth="440" Width="500" Height="400" >
     <Grid Background="#ffdadada">
-        <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White" Margin="40" MinHeight="100" MinWidth="200" CornerRadius="30" Padding="40">
+        <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White" Margin="40" MinHeight="100" MinWidth="200" CornerRadius="30" Padding="40 40 40 10">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30"  Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
                 <TextBlock  Text="ATM" HorizontalAlignment="Center"  FontSize="35" FontWeight="Black"/>
-                <TextBox  materialDesign:HintAssist.Hint="Input Card Number"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Path=Login,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox  materialDesign:HintAssist.Hint="Input Card Password" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Path=Password,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox x:Name="LoginBox"  materialDesign:HintAssist.Hint="Input Card Number"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Path=Login,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox x:Name="PasswordBox" materialDesign:HintAssist.Hint="Input Card Password" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Path=Password,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" />
                 <Button x:Name="ButtonInput" Content="Input" Click="ButtonInput_Click" Margin="0 25" />
+                <TextBlock x:Name="AccountDataError" HorizontalAlignment="Center" />
             </StackPanel>
         </Border>
     </Grid>

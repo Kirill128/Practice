@@ -7,13 +7,13 @@
         xmlns:local="clr-namespace:Lab4"
         mc:Ignorable="d"
         Title="Account" MinHeight="350" MinWidth="500" Height="300" Width="500">
-    <Grid>
+    <Grid DataContext="{Binding CurrentCard,UpdateSourceTrigger=PropertyChanged}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <TextBlock x:Name="CriticalInfoText" Grid.Row="0" Text="Account Data"/>
+
+        <TextBlock x:Name="AccountDataTop" Grid.Row="0" Text="{Binding Num, UpdateSourceTrigger=PropertyChanged}"/>
         
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -49,13 +49,13 @@
                         </Grid.ColumnDefinitions>
                         
                         <TextBlock Text="Money on Account" Foreground="White" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock Text="sd" FontSize="20"  FontWeight="Black" Margin="20" Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White"/>
+                        <TextBlock Text="{Binding MoneyRubels,UpdateSourceTrigger=PropertyChanged}" FontSize="20"  FontWeight="Black" Margin="20" Grid.Row="0" Padding="14" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White"/>
                         <TextBox x:Name="GetMoneyTextBox" Grid.Row="1" Grid.ColumnSpan="2" Background="White" Margin="15 25 15 0"  materialDesign:HintAssist.Hint="Input how much to get" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Content="Get money" Click="ButtonGetMoney_Click"/>
                         
                     </Grid>
 
-                    <Button Grid.Column="1" Grid.Row="1" FontSize="18" Content="EXIT" HorizontalAlignment="Right" />
+                    <Button Grid.Column="1" Grid.Row="1" FontSize="18" Content="EXIT" HorizontalAlignment="Right" Click="ButtonExit_Click" />
 
                 </Grid>
             </Border>

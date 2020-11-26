@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 namespace Lab4.ViewModel
 {
     public class ATMViewModel : INotifyPropertyChanged
-    {
+    {   // Data for work with Card
         private Card currentCard;
         public Card CurrentCard { get {
                 return currentCard;
@@ -22,109 +22,91 @@ namespace Lab4.ViewModel
             }
         }
         public ObservableCollection<Card> AllCards { get; set; }
-      
-        private string CardsPath;
-
-        private string MoneyPath;
-
-        private string BlockedCardsPath;
         public int MoneyInATM { private set; get; }
+
+        //Data for Authorization
+        public const int maxAttempstToSingIn = 3;
+
+        private int attemtsToSingIn;
+        public int AttemptsToSingIn {
+            get { return attemtsToSingIn; }
+            private set {
+                if (value > -1 && value <= maxAttempstToSingIn)
+                    attemtsToSingIn = value;
+                else
+                    attemtsToSingIn = maxAttempstToSingIn;
+            }
+        }
+
+        public string LastLogin { get; private set; }
+
+        public Card LastLoginCard { get; private set; }
+        //
 
         public ATMViewModel(string cardsPath, string moneyPath, string blockedCardsPath)
         {
-            this.CardsPath = cardsPath;
-            this.MoneyPath = moneyPath;
-            this.BlockedCardsPath = blockedCardsPath;
-            AllCards = getCardsFromDataBase(this.CardsPath);
-            MoneyInATM = getMoneyInATM(this.MoneyPath);
-            blockCards(this.AllCards, this.BlockedCardsPath);
+            AllCards = DataBaseWorker.getCardsFromDataBase(cardsPath);
+            MoneyInATM = DataBaseWorker.getMoneyInATM(moneyPath);
+            DataBaseWorker.blockCards(this.AllCards, blockedCardsPath);
+            this.AttemptsToSingIn = 3;
         }
 
-        public bool singIn(string login,string password) {
-            foreach (Card c in AllCards)
+        public LoginContinions singInWithAttempts(string login, string password)
+        {
+            if (AttemptsToSingIn != 0)
             {
-                if (c.Num.Equals(login) && c.Password.Equals(password))
+                if (singIn(login, password))
                 {
-                    CurrentCard = c;
-                    return true;
+                    AttemptsToSingIn = maxAttempstToSingIn;
+                    LastLogin = String.Empty;
+                    LastLoginCard = null;
+                    return LoginContinions.SUCCESS;
+                }
+                else
+                {
+                    if (LastLogin.Equals(login))
+                    {
+
+                        return LoginContinions.PASSWORDERROR;
+                    }
+                    else
+                    {
+                        LastLogin = login;
+                        AttemptsToSingIn = maxAttempstToSingIn;
+                        return LoginContinions.NEW;
+                    }
                 }
             }
+            else
+            {
+
+                return LoginContinions.BLOCKED;
+            }
+        }
+
+        public bool singIn(string login, string password) {
+            Card potentialCard = findCard(login);
+            if (potentialCard!=null && potentialCard.Password.Equals(password))
+            {
+                return true;
+            }
             return false;
+        }
+
+        private Card findCard(string num) {
+            foreach (Card c in AllCards)
+            {
+                if (c.Num.Equals(num))
+                    return c;
+            }
+            return null;
         }
         public bool getMoney(int howMuch) {
             if (CurrentCard.MoneyRubels < howMuch) return false;
             CurrentCard.MoneyRubels -= howMuch;
             return true;
         }
-        private static void blockCards(ObservableCollection<Card> cards, string filePath)
-        {
-            try
-            {
-                StreamReader file = new StreamReader(filePath);
-                string card;
-                while ((card = file.ReadLine()) != null)
-                {
-                    foreach (Card c in cards)
-                    {
-                        if (c.Num.Equals(card)) c.Blocked = true;
-                    }
-                }
-
-            }
-            catch (IOException e)
-            {
-                throw e;
-            }
-
-        }
-        public static LinkedList<Card> getBlockedCards(string path)
-        {
-            LinkedList<Card> cards = new LinkedList<Card>();
-            try
-            {
-                StreamReader file = new StreamReader(path);
-
-            }
-            catch (Exception e)
-            {
-
-            }
-            return cards;
-        }
-        private static int getMoneyInATM(string filePath)
-        {
-            int result = 0;
-            try
-            {
-                StreamReader file = new StreamReader(filePath);
-                result = Convert.ToInt32(file.ReadLine());
-            }
-            catch (IOException e)
-            {
-                throw e;
-            }
-            return result;
-        }
-        private static ObservableCollection<Card> getCardsFromDataBase(string path)
-        {
-            ObservableCollection<Card> cards = new ObservableCollection<Card>();
-            try
-            {
-                StreamReader file = new StreamReader(path);
-                string card;
-                while ((card = file.ReadLine()) != null)
-                {
-                    string[] cardInfo = card.Split(new char[] { '/' });
-                    cards.Add(new Card(cardInfo[0], cardInfo[1], Convert.ToInt32(cardInfo[2])));
-                }
-
-            }
-            catch (IOException e)
-            {
-                throw e;
-            }
-            return cards;
-        }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

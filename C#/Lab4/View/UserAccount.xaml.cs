@@ -20,16 +20,25 @@ namespace Lab4.View
     public partial class UserAccount : Window
     {
         public ATMViewModel ATM;
-        public UserAccount(ATMViewModel atm)
+        private LoginWindow LoginWindow { get; set; }
+        public UserAccount(ATMViewModel atm,LoginWindow loginWindow)
         {
             InitializeComponent();
             this.ATM = atm;
             DataContext = this.ATM;
+            this.LoginWindow = loginWindow;
         }
 
         private void ButtonGetMoney_Click(object sender, RoutedEventArgs e)
         {
-            if (Regex.IsMatch())
+            
+        }
+
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.ATM.CurrentCard = null;
+            this.Hide();
+            this.LoginWindow.Show();
         }
     }
 }
