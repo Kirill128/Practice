@@ -21,17 +21,35 @@ namespace Lab4.View
     {
         public ATMViewModel ATM;
         private LoginWindow LoginWindow { get; set; }
+        
         public UserAccount(ATMViewModel atm,LoginWindow loginWindow)
         {
             InitializeComponent();
             this.ATM = atm;
             DataContext = this.ATM;
             this.LoginWindow = loginWindow;
+
+
         }
 
         private void ButtonGetMoney_Click(object sender, RoutedEventArgs e)
         {
-            
+            int MoneyToGet;
+            if (Int32.TryParse(GetMoneyTextBox.Text, out MoneyToGet))
+            {
+                if (MoneyToGet >= 0)
+                {
+                    if (ATM.haveMoneyInAtm(MoneyToGet))
+                    {
+                        if (!ATM.getMoney(MoneyToGet))
+                            MessageBox.Show("Don't have enough money on account.");
+                    }
+                    else MessageBox.Show("Don't have enough money in ATM. Our apologies.");
+                }
+            }
+            else {
+                MessageBox.Show("Можно ввести только цифры!");
+            }
         }
 
         private void ButtonExit_Click(object sender, RoutedEventArgs e)

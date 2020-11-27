@@ -22,12 +22,7 @@ namespace Lab4.View
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private string cardsPath = "I:\\Practice\\C#\\Lab4\\database\\cards.txt";
-
-        private string moneyPath = "I:\\Practice\\C#\\Lab4\\database\\atminfo.txt";
-
-        private string blockedCardsPath = "I:\\Practice\\C#\\Lab4\\database\\blockedcards.txt";
-
+        
         LoginValidator valid;
         ATMViewModel atm { get; set; }
         UserAccount account { get; set; }
@@ -38,7 +33,7 @@ namespace Lab4.View
             InitializeComponent();
             valid = new LoginValidator();
             DataContext = valid;
-            atm = new ATMViewModel(cardsPath,moneyPath,blockedCardsPath);
+            atm = new ATMViewModel();
             account = new UserAccount(atm,this);
         }
         private void ButtonInput_Click(object sender, RoutedEventArgs e)
@@ -51,14 +46,20 @@ namespace Lab4.View
             {
                 ((Button)sender).Background = new SolidColorBrush(Color.FromRgb(103,58,183));
 
-                if (atm.singIn(LoginBox.Text, PasswordBox.Text))
-                {
-                    clearInput();
-                    account.Show();
-                    this.Hide();
-                }else
-                {
-                    AccountDataError.Text = "Account doesn't exist!!!";  
+                switch (atm.singInWithAttempts(LoginBox.Text,PasswordBox.Text)) {
+                    case LoginContinions.BLOCKED:
+                        AccountDataError.Text = "Account was blocked!";
+                        break;
+                    case LoginContinions.DOESNTEXIST:
+                        AccountDataError.Text = "Account doesn't exist!";
+                        break;
+                    case LoginContinions.PASSWORDERROR:
+                        AccountDataError.Text ="Incorrect Password!!\n You have "+atm.AttemptsToSingIn+" attempts to sing in";
+                        break;
+                    case LoginContinions.SUCCESS:
+                        this.Hide();
+                        account.Show();
+                        break;
                 }
             }
             else

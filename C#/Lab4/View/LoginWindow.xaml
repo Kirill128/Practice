@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Lab4"
         mc:Ignorable="d"
-        Title="Login" MinHeight="400" MinWidth="440" Width="500" Height="400" >
+        Title="Login" MinHeight="400" MinWidth="440" Width="500" Height="450" >
     <Grid Background="#ffdadada">
         <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White" Margin="40" MinHeight="100" MinWidth="200" CornerRadius="30" Padding="40 40 40 10">
             <Border.Effect>

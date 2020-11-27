@@ -37,57 +37,50 @@ namespace Lab4.ViewModel
                     attemtsToSingIn = maxAttempstToSingIn;
             }
         }
-
-        public string LastLogin { get; private set; }
-
         public Card LastLoginCard { get; private set; }
+        public string LastLogin { get; private set; }
         //
 
-        public ATMViewModel(string cardsPath, string moneyPath, string blockedCardsPath)
+        public ATMViewModel()
         {
-            AllCards = DataBaseWorker.getCardsFromDataBase(cardsPath);
-            MoneyInATM = DataBaseWorker.getMoneyInATM(moneyPath);
-            DataBaseWorker.blockCards(this.AllCards, blockedCardsPath);
+            AllCards = DataBaseWorker.getCardsFromDataBase(DataBaseWorker.CardPath);
+            MoneyInATM = DataBaseWorker.getMoneyInATM(DataBaseWorker.AtmInfoPath);
+            DataBaseWorker.blockCards(this.AllCards, DataBaseWorker.BlockedCardPath);
             this.AttemptsToSingIn = 3;
+            LastLogin = String.Empty;
         }
-
         public LoginContinions singInWithAttempts(string login, string password)
         {
-            if (AttemptsToSingIn != 0)
+            if (!login.Equals(LastLogin))
             {
-                if (singIn(login, password))
-                {
-                    AttemptsToSingIn = maxAttempstToSingIn;
-                    LastLogin = String.Empty;
-                    LastLoginCard = null;
-                    return LoginContinions.SUCCESS;
-                }
-                else
-                {
-                    if (LastLogin.Equals(login))
-                    {
-
-                        return LoginContinions.PASSWORDERROR;
-                    }
-                    else
-                    {
-                        LastLogin = login;
-                        AttemptsToSingIn = maxAttempstToSingIn;
-                        return LoginContinions.NEW;
-                    }
-                }
+                AttemptsToSingIn = maxAttempstToSingIn;
+                LastLoginCard = findCard(login);
+                LastLogin = login;
             }
-            else
+            if (LastLoginCard.Blocked) return LoginContinions.BLOCKED;
+            if (AttemptsToSingIn == 0) { 
+                LastLoginCard.Blocked = true;
+                DataBaseWorker.saveBlockedCard(LastLoginCard,DataBaseWorker.BlockedCardPath);
+            }
+            if (LastLoginCard.Blocked) return LoginContinions.BLOCKED;
+            if (LastLoginCard == null) return LoginContinions.DOESNTEXIST;
+            if (LastLoginCard.Password.Equals(password))
             {
-
-                return LoginContinions.BLOCKED;
+                AttemptsToSingIn = maxAttempstToSingIn;
+                CurrentCard = LastLoginCard;
+                LastLoginCard = null;
+                return LoginContinions.SUCCESS;
+            }
+            else {
+                AttemptsToSingIn--;
+                return LoginContinions.PASSWORDERROR;
             }
         }
-
         public bool singIn(string login, string password) {
             Card potentialCard = findCard(login);
-            if (potentialCard!=null && potentialCard.Password.Equals(password))
+            if (potentialCard != null && potentialCard.Password.Equals(password))
             {
+                CurrentCard = potentialCard;
                 return true;
             }
             return false;
@@ -101,9 +94,13 @@ namespace Lab4.ViewModel
             }
             return null;
         }
+        public bool haveMoneyInAtm(int howMuch) { return MoneyInATM >= howMuch; }
         public bool getMoney(int howMuch) {
-            if (CurrentCard.MoneyRubels < howMuch) return false;
+            if (CurrentCard.MoneyRubels < howMuch || MoneyInATM<howMuch) return false;
             CurrentCard.MoneyRubels -= howMuch;
+            MoneyInATM -= howMuch;
+            DataBaseWorker.saveMoneyInATM(MoneyInATM,DataBaseWorker.AtmInfoPath);
+            DataBaseWorker.saveCards(AllCards, DataBaseWorker.CardPath);
             return true;
         }
         
@@ -112,6 +109,10 @@ namespace Lab4.ViewModel
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
+        ~ATMViewModel() {
+            DataBaseWorker.saveCards(AllCards,DataBaseWorker.CardPath);
+            DataBaseWorker.saveMoneyInATM(MoneyInATM,DataBaseWorker.AtmInfoPath);
         }
     }
 }

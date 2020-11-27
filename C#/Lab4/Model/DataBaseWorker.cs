@@ -8,9 +8,55 @@ namespace Lab4.Model
 {
     public class DataBaseWorker
     {
-        
+        public const string CardPath= "C:\\Users\\Laptop\\source\\repos\\Practice\\C#\\Lab4\\database\\cards.txt";
+
+        public const string BlockedCardPath = "C:\\Users\\Laptop\\source\\repos\\Practice\\C#\\Lab4\\database\\blockedcards.txt";
+
+        public const string AtmInfoPath = "C:\\Users\\Laptop\\source\\repos\\Practice\\C#\\Lab4\\database\\atminfo.txt";
+
         public DataBaseWorker() {
             
+        }
+        public static void saveCards(ObservableCollection<Card> cards,string filePath) {
+            try {
+                using (StreamWriter file = new StreamWriter(filePath)) {
+                    foreach (Card c in cards) {
+                        file.WriteLine(c.Num+"/"+c.Password+"//"+c.MoneyRubels);
+                    }
+                }
+            }
+            catch (Exception e) {
+                Console.WriteLine(e.Message) ;
+            }
+                
+        }
+        public static void saveBlockedCard(Card blockedCard,string filePath) {
+            try
+            {
+                using (StreamWriter file = new StreamWriter(filePath,true))
+                {
+                        file.WriteLine(blockedCard.Num);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+        public static void saveMoneyInATM(int money ,string filePath) {
+            try
+            {
+                using (StreamWriter file = new StreamWriter(filePath))
+                {
+                    file.WriteLine(money);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
         public  static void blockCards(ObservableCollection<Card> cards, string filePath)
         {

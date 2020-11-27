@@ -91,19 +91,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Кирилл\\.nuget\\packages\\": {}
+    "C:\\Users\\Laptop\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "I:\\Practice\\C#\\Lab4\\Lab4.csproj",
+      "projectUniqueName": "C:\\Users\\Laptop\\source\\repos\\Practice\\C#\\Lab4\\Lab4.csproj",
       "projectName": "Lab4",
-      "projectPath": "I:\\Practice\\C#\\Lab4\\Lab4.csproj",
-      "packagesPath": "C:\\Users\\Кирилл\\.nuget\\packages\\",
-      "outputPath": "I:\\Practice\\C#\\Lab4\\obj\\",
+      "projectPath": "C:\\Users\\Laptop\\source\\repos\\Practice\\C#\\Lab4\\Lab4.csproj",
+      "packagesPath": "C:\\Users\\Laptop\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Laptop\\source\\repos\\Practice\\C#\\Lab4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Кирилл\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Laptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -115,6 +115,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -126,6 +127,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "MaterialDesignThemes": {
             "target": "Package",
@@ -150,7 +152,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

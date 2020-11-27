@@ -8,7 +8,7 @@ namespace Lab4.ViewModel
     {
         SUCCESS,
         BLOCKED,
-        NEW,
-        PASSWORDERROR
+        PASSWORDERROR,
+        DOESNTEXIST
     }
 }

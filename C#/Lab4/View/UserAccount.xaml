@@ -50,9 +50,9 @@
                         
                         <TextBlock Text="Money on Account" Foreground="White" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         <TextBlock Text="{Binding MoneyRubels,UpdateSourceTrigger=PropertyChanged}" FontSize="20"  FontWeight="Black" Margin="20" Grid.Row="0" Padding="14" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White"/>
-                        <TextBox x:Name="GetMoneyTextBox" Grid.Row="1" Grid.ColumnSpan="2" Background="White" Margin="15 25 15 0"  materialDesign:HintAssist.Hint="Input how much to get" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <TextBox x:Name="GetMoneyTextBox" Grid.Row="1" Grid.ColumnSpan="2" Background="White" Margin="15 25 15 0"  materialDesign:HintAssist.Hint="Input how much to get" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Path=Money}" />
                         <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Content="Get money" Click="ButtonGetMoney_Click"/>
-                        
+
                     </Grid>
 
                     <Button Grid.Column="1" Grid.Row="1" FontSize="18" Content="EXIT" HorizontalAlignment="Right" Click="ButtonExit_Click" />
